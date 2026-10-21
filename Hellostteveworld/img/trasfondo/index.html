@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stteveworld | Amanda Pires — UX/UI & Branding</title>
+    <meta name="description" content="Portfolio de Amanda Pires: Diseñadora UX/UI, Branding, Diseño Editorial e Ilustración.">
+    <meta name="theme-color" content="#d9d9dc">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face { font-family: "Poppins"; src: url("font/Poppins-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+        @font-face { font-family: "Poppins"; src: url("font/Poppins-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+        @font-face { font-family: "Poppins"; src: url("font/Poppins-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+        :root {
+            --fondo: #d9d9dc;
+            --hoja: #f7f7f7;
+            --blanco: #ffffff;
+            --negro: #0b0b0b;
+            --texto: #161616;
+            --suave: #6b6b70;
+            --borde: #dcdcde;
+            --sep: 16px;
+            --pill: 999px;
+            --fuente: "Poppins", system-ui, -apple-system, sans-serif;
+            --mono: "Space Mono", ui-monospace, Menlo, monospace;
+            --marker: "Permanent Marker", "Comic Sans MS", cursive;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { margin: 0; background: var(--fondo); color: var(--texto); font-family: var(--fuente); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3, h4, p, dl, dd { margin: 0; }
+        :focus-visible { outline: 2px solid var(--negro); outline-offset: 3px; }
+        section[id] { scroll-margin-top: 100px; }
+
+        .contenedor { max-width: 1360px; margin: 0 auto; padding: var(--sep); }
+        .mono { font-family: var(--mono); }
+
+        /* ============ CABECERA ============ */
+        .cabecera { position: sticky; top: 0; z-index: 1000; background: var(--hoja); border-bottom: 1px solid var(--borde); }
+        .cabecera__in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding: 14px 28px; position: relative; }
+        .logo { font-family: var(--marker); font-size: 1.15rem; letter-spacing: .02em; }
+        .nav ul { display: flex; gap: 34px; margin: 0; padding: 0; list-style: none; }
+        .nav a { font-family: var(--mono); font-size: .78rem; color: var(--suave); transition: color .2s; }
+        .nav a:hover, .nav a.activo { color: var(--negro); text-decoration: underline; text-underline-offset: 5px; }
+        .cabecera__der { justify-self: end; display: flex; gap: 10px; align-items: center; }
+        .burger { display: none; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--negro); cursor: pointer; position: relative; }
+        .burger span, .burger span::before, .burger span::after { content: ""; position: absolute; left: 10px; right: 10px; height: 2px; background: #fff; border-radius: 2px; }
+        .burger span { top: 19px; }
+        .burger span::before { top: -6px; }
+        .burger span::after { top: 6px; }
+
+        /* ============ BOTONES ============ */
+        .boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 24px; background: var(--negro); color: #fff; font: 400 .8rem var(--mono); border-radius: var(--pill); border: 1px solid var(--negro); cursor: pointer; transition: transform .2s, box-shadow .2s; }
+        .boton:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+        .boton--blanco { background: #fff; color: var(--negro); border-color: #fff; }
+        .boton--borde { background: transparent; color: var(--negro); border-color: var(--negro); }
+
+        /* ============ HOJAS ============ */
+        .hoja { margin-top: var(--sep); padding: clamp(28px, 5vw, 64px); background: var(--hoja); }
+        .hoja--primero { margin-top: 0; }
+        .etiqueta { display: inline-block; font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--suave); }
+        sup.cnt { font-family: var(--mono); font-size: .38em; font-weight: 400; vertical-align: super; margin-left: 4px; color: var(--suave); }
+
+        /* ============ HERO ============ */
+        .hero { position: relative; overflow: hidden; }
+        .hero__fila { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 32px; align-items: end; }
+        .hero h1 { font-size: clamp(3.4rem, 11vw, 9rem); font-weight: 500; line-height: .9; letter-spacing: -.05em; }
+        .hero h1 sup { font-size: .35em; vertical-align: super; }
+        .hero__txt { font-family: var(--mono); font-size: .8rem; color: var(--suave); max-width: 38ch; line-height: 1.6; }
+        .hero__links { display: flex; gap: 18px; font-family: var(--mono); font-size: .72rem; color: var(--suave); }
+        .hero__links a:hover { color: var(--negro); }
+        .blobs { display: flex; margin: 40px 0 0 -64px; opacity: .95; }
+        .blobs svg { width: clamp(120px, 20vw, 260px); height: auto; margin-right: -28px; fill: var(--negro); }
+        .blobs svg:nth-child(2) { transform: rotate(18deg) scale(1.1); }
+        .blobs svg:nth-child(3) { transform: rotate(-12deg) scale(.9); }
+        .nota-marker { font-family: var(--marker); font-size: 1.6rem; transform: rotate(-6deg); display: inline-block; margin-left: 20px; }
+
+        /* ============ CATÁLOGOS (HOME) ============ */
+        .cab-lista { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 28px; flex-wrap: wrap; }
+        .cab-lista h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; letter-spacing: -.02em; }
+        .cab-lista p { font-family: var(--mono); font-size: .78rem; color: var(--suave); max-width: 46ch; }
+
+        .catalogo { display: grid; grid-template-columns: 56px 1.2fr 1fr auto; gap: 24px; align-items: center; padding: 26px 20px; border-top: 1px solid var(--negro); color: var(--negro); transition: background .25s, color .25s; cursor: pointer; }
+        .catalogo:last-child { border-bottom: 1px solid var(--negro); }
+        .catalogo:hover { background: var(--negro); color: #fff; }
+        .catalogo__num { font-family: var(--mono); font-size: .8rem; }
+        .catalogo__nom { font-size: clamp(1.8rem, 4.5vw, 3.6rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+        .catalogo__nom sup { font-family: var(--mono); font-size: .8rem; letter-spacing: 0; vertical-align: super; margin-left: 6px; }
+        .catalogo__txt { font-family: var(--mono); font-size: .78rem; line-height: 1.55; opacity: .75; }
+        .catalogo__mini { display: flex; gap: 6px; }
+        .catalogo__mini span { width: 64px; height: 80px; background: #cfcfd2 center/cover no-repeat; filter: grayscale(1); transition: filter .25s; }
+        .catalogo:hover .catalogo__mini span { filter: none; }
+
+        /* ============ SERVICIOS ============ */
+        .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--negro); }
+        .servicio { padding: 28px 24px 36px 0; }
+        .servicio + .servicio { padding-left: 24px; border-left: 1px solid var(--borde); }
+        .servicio h3 { font-size: 1.25rem; font-weight: 500; margin: 8px 0 10px; letter-spacing: -.01em; }
+        .servicio p { font-family: var(--mono); font-size: .78rem; color: var(--suave); line-height: 1.6; text-align: justify; }
+
+        /* ============ TRABAJOS ============ */
+        .trab-titulo { font-size: clamp(2.6rem, 7vw, 5.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
+        .trab-barra { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin: 40px 0 24px; }
+        .filtros, .vistas { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+        .filtro, .vista-btn { background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--fuente); font-size: clamp(1rem, 1.8vw, 1.4rem); font-weight: 500; color: #b3b3b7; transition: color .2s; }
+        .filtro:hover, .vista-btn:hover { color: var(--texto); }
+        .filtro.activo, .vista-btn.activo { color: var(--negro); }
+        .filtro sup { font-family: var(--mono); font-size: .55em; font-weight: 400; margin-left: 2px; }
+
+        .obras { display: grid; gap: 4px; }
+        .obras--grid { grid-template-columns: repeat(4, 1fr); }
+        .obras--list { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--negro); }
+        .obras--feed { grid-template-columns: minmax(0, 620px); justify-content: center; gap: 56px; }
+        .obras--full { grid-template-columns: 1fr; gap: 4px; }
+
+        .obra { display: flex; flex-direction: column; color: var(--negro); }
+        .obra__img { position: relative; overflow: hidden; background: #d4d4d7; display: grid; place-items: center; }
+        .obra__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .35s, transform .5s; }
+        .obra:hover .obra__img img { filter: none; transform: scale(1.04); }
+        .obra__ph { font-family: var(--marker); font-size: 1.6rem; color: #9a9aa0; text-align: center; padding: 12px; }
+        .obra__info { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; padding: 10px 2px 14px; font-family: var(--mono); font-size: .72rem; }
+        .obra__info b { font-weight: 700; }
+        .obra__info em { font-style: normal; color: var(--suave); }
+
+        .obras--grid .obra__img { aspect-ratio: 4 / 5; }
+        .obras--feed .obra__img { aspect-ratio: 4 / 5; }
+        .obras--full .obra__img { aspect-ratio: 16 / 8; }
+        .obras--full .obra__info { position: absolute; }
+        .obras--full .obra { position: relative; }
+        .obras--full .obra__info { left: 20px; bottom: 14px; color: #fff; mix-blend-mode: difference; z-index: 2; }
+        .obras--full .obra__info em { color: #fff; }
+
+        .obras--list .obra { display: grid; grid-template-columns: 90px 1fr 1fr 80px; gap: 24px; align-items: center; padding: 14px 8px; border-bottom: 1px solid var(--borde); transition: background .2s, color .2s; }
+        .obras--list .obra:hover { background: var(--negro); color: #fff; }
+        .obras--list .obra:hover em { color: #aaa; }
+        .obras--list .obra__img { width: 90px; height: 64px; }
+        .obras--list .obra__ph { font-size: .8rem; padding: 4px; }
+        .obras--list .obra__info { display: contents; }
+        .obras--list .obra__info b { font-family: var(--fuente); font-size: 1.25rem; font-weight: 500; grid-column: 2; order: 1; }
+        .obras--list .obra__info span { display: none; }
+        .obras--list .obra__info em.cat { grid-column: 3; }
+        .obras--list .obra__info em.anio { grid-column: 4; text-align: right; }
+
+        /* ============ CASO DE ESTUDIO ============ */
+        .proy-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin: 28px 0 36px; }
+        .proy-hero h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 500; letter-spacing: -.05em; line-height: .95; }
+        .proy-hero p { font-family: var(--mono); font-size: .85rem; color: var(--suave); text-align: justify; }
+        .proy-meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--negro); border-bottom: 1px solid var(--negro); margin-bottom: 20px; }
+        .meta { padding: 14px 16px 14px 0; }
+        .meta + .meta { padding-left: 16px; border-left: 1px solid var(--borde); }
+        .meta dt { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--suave); }
+        .meta dd { font-size: .95rem; font-weight: 500; }
+        .proy-banner { position: relative; aspect-ratio: 16 / 8; background: #d4d4d7; overflow: hidden; margin-bottom: 56px; }
+        .proy-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .sec { margin-bottom: 64px; }
+        .sec__head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--negro); padding-bottom: 12px; margin-bottom: 24px; }
+        .sec__head h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -.02em; }
+        .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+        .caja { padding: 34px; background: #ececee; }
+        .caja--negra { background: var(--negro); color: #fff; }
+        .caja h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 12px; }
+        .caja p { font-family: var(--mono); font-size: .82rem; line-height: 1.7; text-align: justify; color: inherit; opacity: .85; }
+        .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+        .paso { padding: 28px; background: #ececee; }
+        .paso__num { font-family: var(--marker); font-size: 2rem; }
+        .paso h4 { font-size: 1.05rem; font-weight: 500; margin: 6px 0; }
+        .paso p { font-family: var(--mono); font-size: .76rem; color: var(--suave); line-height: 1.6; }
+        .resultado { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; padding: 48px; background: var(--negro); color: #fff; }
+        .resultado h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 500; letter-spacing: -.02em; }
+        .resultado p { font-family: var(--mono); font-size: .82rem; color: rgba(255,255,255,.75); margin-top: 12px; max-width: 60ch; }
+        .galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+        .galeria figure { position: relative; margin: 0; aspect-ratio: 4 / 3; background: #d4d4d7; overflow: hidden; }
+        .galeria figure:first-child { grid-column: span 2; aspect-ratio: 16 / 8; }
+        .galeria figure:last-child:nth-child(even) { grid-column: span 2; aspect-ratio: 16 / 8; }
+        .galeria img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ---- Caso Nocta: componentes de diseño ---- */
+        :root { --nocta: #2f6fe0; }
+        .cn-tabs { position: sticky; top: 74px; z-index: 50; display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 0; margin-bottom: 40px; background: var(--hoja); border-bottom: 1px solid var(--borde); }
+        .cn-tab { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; padding: 8px 18px; border: 1px solid var(--negro); border-radius: var(--pill); background: transparent; color: var(--negro); cursor: pointer; transition: background .2s, color .2s; }
+        .cn-tab:hover { background: #e4e4e7; }
+        .cn-tab.activo { background: var(--negro); color: #fff; }
+        .cn { scroll-margin-top: 150px; margin-bottom: 72px; }
+        .cn__lead { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 400; letter-spacing: -.01em; line-height: 1.35; max-width: 34ch; margin-bottom: 28px; }
+        .cn__sub { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--suave); margin: 40px 0 14px; }
+        .cn-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+        .cn-grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+        .cn-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+        .cn-card { padding: 28px; background: #ececee; }
+        .cn-card--negro { background: var(--negro); color: #fff; }
+        .cn-card--azul { background: var(--nocta); color: #fff; }
+        .cn-card h4 { font-size: 1.1rem; font-weight: 500; margin-bottom: 4px; }
+        .cn-tag { display: inline-block; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border: 1px solid currentColor; border-radius: var(--pill); margin-bottom: 12px; opacity: .75; }
+        .cn-card p { font-family: var(--mono); font-size: .76rem; line-height: 1.65; opacity: .85; }
+        .cn-card p + p { margin-top: 10px; }
+        .cn-card p b { font-weight: 700; opacity: 1; }
+        .cn-stat { padding: 28px 24px; background: var(--negro); color: #fff; display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; }
+        .cn-stat strong { font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; color: #fff; }
+        .cn-stat strong em { font-style: normal; color: #7fb0ff; }
+        .cn-stat span { font-family: var(--mono); font-size: .74rem; line-height: 1.5; color: rgba(255,255,255,.7); margin-top: 18px; }
+        .cn-stat:nth-child(even) { background: var(--nocta); }
+        .cn-stat:nth-child(even) strong em { color: #fff; opacity: .8; }
+        .cn-stat:nth-child(even) span { color: rgba(255,255,255,.85); }
+        .cn-dafo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+        .cn-dafo .cn-card ul { list-style: none; padding: 0; margin: 0; font-family: var(--mono); font-size: .76rem; line-height: 1.55; }
+        .cn-dafo .cn-card li { padding: 8px 0; border-top: 1px solid rgba(0,0,0,.15); }
+        .cn-dafo .cn-card--negro li, .cn-dafo .cn-card--azul li { border-top-color: rgba(255,255,255,.25); }
+        .cn-fig { margin: 0; background: var(--negro); overflow: hidden; }
+        .cn-fig img { width: 100%; height: auto; display: block; cursor: zoom-in; }
+        .cn-fig figcaption { font-family: var(--mono); font-size: .68rem; color: rgba(255,255,255,.6); padding: 10px 14px; }
+        .cn-row2 { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4px; margin-top: 4px; }
+        .cn-row2 .cn-fig { display: flex; flex-direction: column; justify-content: center; }
+        .cn-quote { padding: clamp(28px, 4vw, 48px); background: var(--negro); color: #fff; display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+        .cn-quote blockquote { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.8rem); letter-spacing: -.02em; line-height: 1.25; }
+        .cn-quote cite { display: block; font-family: var(--mono); font-style: normal; font-size: .72rem; color: rgba(255,255,255,.6); margin-top: 14px; }
+        .cn-quote ul { list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: .76rem; line-height: 1.55; }
+        .cn-quote li { padding: 9px 0; border-top: 1px solid rgba(255,255,255,.22); }
+        .cn-quote li b { color: #7fb0ff; font-weight: 400; margin-right: 8px; }
+        .cn-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; margin-bottom: 4px; }
+        .cn-flow .cn-card { padding: 22px; }
+        .cn-flow .cn-card small { display: block; font-family: var(--mono); font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; opacity: .65; margin-bottom: 8px; }
+        .cn-flow .cn-arrow { align-self: center; font-family: var(--mono); font-size: 1.2rem; }
+        .cn-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .cn-chip { padding: 8px 16px; border: 1px solid var(--negro); border-radius: var(--pill); font-family: var(--mono); font-size: .74rem; background: #fff; }
+        .cn-arbol { display: grid; gap: 4px; }
+        .cn-arbol__raiz { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--mono); font-size: .74rem; padding: 18px 0 22px; }
+        .cn-arbol__raiz span { padding: 7px 16px; border-radius: var(--pill); background: var(--negro); color: #fff; }
+        .cn-arbol__raiz i { font-style: normal; color: var(--suave); }
+        .cn-arbol__ramas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+        .cn-rama { background: #ececee; padding: 18px; }
+        .cn-rama h5 { margin: 0 0 12px; font-size: 1rem; font-weight: 500; padding-bottom: 10px; border-bottom: 1px solid var(--negro); }
+        .cn-rama ul { list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: .72rem; line-height: 1.5; }
+        .cn-rama li { padding: 5px 0; }
+        .cn-rama li::before { content: "↳ "; color: var(--suave); }
+        .cn-mvp .cn-card { min-height: 190px; display: flex; flex-direction: column; justify-content: space-between; }
+        .cn-mvp .cn-card .n { font-family: var(--marker); font-size: 2rem; line-height: 1; }
+        .cn-apps { display: flex; justify-content: center; align-items: center; gap: clamp(24px, 6vw, 80px); padding: clamp(28px, 5vw, 56px); background: var(--negro); }
+        .cn-apps img { height: clamp(300px, 46vw, 520px); width: auto; max-width: 44%; object-fit: contain; cursor: zoom-in; }
+        .cn-cierre { margin-top: 4px; padding: clamp(28px, 4vw, 48px); background: #ececee; font-size: clamp(1.1rem, 2vw, 1.5rem); letter-spacing: -.01em; line-height: 1.35; }
+        .cn-cierre small { display: block; font-family: var(--mono); font-size: .72rem; color: var(--suave); margin-top: 14px; letter-spacing: 0; }
+        @media (max-width: 960px) {
+            .cn-grid3, .cn-grid4, .cn-grid2, .cn-dafo, .cn-row2 { grid-template-columns: 1fr; }
+            .cn-flow { grid-template-columns: 1fr; }
+            .cn-flow .cn-arrow { transform: rotate(90deg); justify-self: center; }
+            .cn-arbol__ramas { grid-template-columns: 1fr 1fr; }
+            .cn-tabs { top: 64px; }
+        }
+        .cn-insig { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+        .cn-insig span { font-family: var(--mono); font-size: .72rem; padding: 6px 16px; border: 1px solid var(--negro); border-radius: var(--pill); background: #fff; }
+        .cn-insig span:first-child { background: var(--negro); color: #fff; }
+        .cn-gal { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; align-items: start; }
+        .cn-gal .cn-fig--ancho { grid-column: span 2; }
+        .cn-gal .cn-fig { background: #ececee; }
+        .cn-gal .cn-fig figcaption { color: var(--suave); }
+        .cn-premio { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; padding: clamp(28px, 5vw, 56px); background: var(--negro); color: #fff; }
+        .cn-premio .estrella { font-family: var(--marker); font-size: clamp(3.5rem, 8vw, 6rem); line-height: 1; }
+        .cn-premio h3 { font-size: clamp(1.6rem, 3.4vw, 2.6rem); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+        .cn-premio p { font-family: var(--mono); font-size: .8rem; color: rgba(255,255,255,.7); margin-top: 12px; max-width: 54ch; }
+        .cn-equipo { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .cn-equipo span { padding: 8px 16px; border-radius: var(--pill); border: 1px solid var(--negro); font-family: var(--mono); font-size: .74rem; background: #fff; }
+        .cn-equipo span.yo { background: var(--negro); color: #fff; }
+        .cn-dias { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+        .cn-dia { background: #ececee; padding: 18px; }
+        .cn-dia:nth-child(odd) { background: var(--negro); color: #fff; }
+        .cn-dia small { font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; opacity: .65; }
+        .cn-dia h5 { margin: 4px 0 12px; font-size: 1.15rem; font-weight: 500; letter-spacing: -.02em; }
+        .cn-dia ul { list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: .72rem; line-height: 1.5; }
+        .cn-dia li { padding: 6px 0; border-top: 1px solid rgba(128,128,128,.35); }
+        .cn-pal { display: flex; gap: 4px; margin-top: 4px; }
+        .cn-pal i { flex: 1; height: 56px; }
+        @media (max-width: 960px) { .cn-gal, .cn-dias, .cn-premio { grid-template-columns: 1fr; } .cn-gal .cn-fig--ancho { grid-column: auto; } }
+        /* ============ LANDING DE PRODUCTO (estilo app landing) ============ */
+        .lp { --a: #2f6fe0; --b: #7fb0ff; --fondo-hero: #070a14; margin: 0 0 56px; background: #fff; }
+        .lp-hero { position: relative; background: radial-gradient(120% 90% at 80% 10%, color-mix(in srgb, var(--a) 35%, var(--fondo-hero)) 0%, var(--fondo-hero) 60%); color: #fff; padding: clamp(36px, 6vw, 72px) clamp(24px, 5vw, 64px) clamp(120px, 14vw, 190px); overflow: hidden; }
+        .lp-hero__in { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .lp-kicker { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--b); }
+        .lp-hero h2 { font-size: clamp(2.2rem, 5.4vw, 4.2rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; margin: 14px 0 18px; }
+        .lp-hero h2 b { font-weight: 500; color: var(--b); }
+        .lp-hero p { font-family: var(--mono); font-size: .82rem; line-height: 1.75; color: rgba(255,255,255,.72); max-width: 46ch; }
+        .lp-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+        .lp-btn { display: inline-flex; padding: 12px 26px; border-radius: var(--pill); background: var(--a); color: #fff; font: 400 .8rem var(--mono); border: 1px solid var(--a); cursor: pointer; transition: transform .2s, box-shadow .2s; }
+        .lp-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px color-mix(in srgb, var(--a) 55%, transparent); }
+        .lp-btn--borde { background: transparent; border-color: rgba(255,255,255,.5); }
+        .lp-phones { position: relative; display: flex; justify-content: center; align-items: center; gap: 0; min-height: 360px; }
+        .lp-phones img, .lp-phones .lp-ph { height: clamp(300px, 36vw, 440px); width: auto; filter: drop-shadow(0 30px 40px rgba(0,0,0,.45)); }
+        .lp-phones > :nth-child(1) { rotate: -7deg; translate: 18px 6px; z-index: 1; }
+        .lp-phones > :nth-child(2) { rotate: 6deg; translate: -18px 4px; z-index: 2; }
+        .lp-phones > :only-child { rotate: 4deg; translate: 0 0; }
+        .lp-ph { aspect-ratio: 9 / 18.5; background: #0b0b0b; border-radius: 40px; padding: 10px; position: relative; border: 2px solid #3a3a40; }
+        .lp-ph iframe { width: 100%; height: 100%; border: 0; border-radius: 30px; background: #fff; display: block; }
+        .lp-demo { width: 100%; height: 100%; border: 0; border-radius: 30px; cursor: pointer; background: linear-gradient(160deg, var(--a), var(--b)); color: #fff; display: grid; place-content: center; gap: 10px; text-align: center; font-family: var(--marker); font-size: 1.5rem; padding: 16px; }
+        .lp-demo small { font-family: var(--mono); font-size: .7rem; opacity: .85; }
+        .lp-wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(60px, 9vw, 130px); display: block; }
+        .lp-wave path { fill: #fff; }
+        .lp-bloque { max-width: 1100px; margin: 0 auto; padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 64px); }
+        .lp-titulo { font-size: 1.15rem; font-weight: 500; padding-left: 14px; border-left: 3px solid var(--a); letter-spacing: .01em; margin-bottom: 22px; text-transform: uppercase; }
+        .lp-titulo span { font-weight: 300; }
+        .lp-about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+        .lp-about p { font-family: var(--mono); font-size: .8rem; line-height: 1.8; color: var(--suave); margin-bottom: 14px; }
+        .lp-about__chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 18px; font-family: var(--mono); font-size: .76rem; }
+        .lp-about__chips span::before { content: "◆ "; color: var(--a); }
+        .lp-stage { background: var(--fondo-hero); border-radius: 28px; padding: 28px; display: grid; place-items: center; }
+        .lp-stage img { height: clamp(260px, 34vw, 400px); width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; }
+        .lp-feats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; border-top: 1px solid var(--borde); }
+        .lp-feat { padding-top: 12px; }
+        .lp-ico { width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--borde); display: grid; place-items: center; margin: 0 auto 14px; color: var(--a); background: #fff; }
+        .lp-ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+        .lp-feat h4 { font-size: .9rem; font-weight: 500; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 6px; }
+        .lp-feat p { font-family: var(--mono); font-size: .72rem; line-height: 1.6; color: var(--suave); }
+        .lp-band { background: #f0f0f2; }
+        .lp-band .lp-bloque { display: grid; grid-template-columns: .9fr 1.1fr 1fr; gap: 36px; align-items: center; }
+        .lp-band__lista { display: grid; gap: 20px; }
+        .lp-item { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; }
+        .lp-item .lp-ico { margin: 0; width: 52px; height: 52px; }
+        .lp-item:first-child .lp-ico { background: var(--a); color: #fff; border-color: var(--a); }
+        .lp-item h4 { font-size: .85rem; font-weight: 500; text-transform: uppercase; }
+        .lp-item p { font-family: var(--mono); font-size: .72rem; line-height: 1.55; color: var(--suave); }
+        .lp-band__txt { font-family: var(--mono); font-size: .78rem; line-height: 1.8; color: var(--suave); border-left: 1px solid var(--borde); padding-left: 28px; }
+        .lp-shots { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+        .lp-shots .lp-stage { flex: 0 0 auto; scroll-snap-align: start; padding: 20px; }
+        .lp-shots img { height: clamp(260px, 30vw, 380px); }
+        .lp-shots .lp-stage figcaption { color: rgba(255,255,255,.65); font-family: var(--mono); font-size: .68rem; margin-top: 10px; text-align: center; }
+        @media (max-width: 960px) {
+            .lp-hero__in, .lp-about, .lp-band .lp-bloque { grid-template-columns: 1fr; }
+            .lp-feats { grid-template-columns: 1fr 1fr; }
+            .lp-band__txt { border-left: 0; padding-left: 0; }
+        }
+        .proy-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--negro); }
+
+        /* ============ SOBRE MÍ (ESTILO MARKER) ============ */
+        .about { background: #fff; padding-bottom: 80px; overflow: hidden; }
+        .about__cab { position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 12px; }
+        .about__foto { width: min(100%, 1100px); aspect-ratio: 16 / 8; background: #d4d4d7 center/cover; position: relative; overflow: hidden; z-index: 1; }
+        .about__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
+        .about__titulo { color: #fff; mix-blend-mode: difference; font-family: var(--marker); font-weight: 400; font-size: clamp(5rem, 21vw, 17rem); line-height: .8; letter-spacing: -.02em; margin-top: -.42em; position: relative; z-index: 2; white-space: nowrap; color: var(--negro); }
+        .about__intro { max-width: 640px; margin: 28px auto 0; text-align: center; font-size: clamp(1.1rem, 2.2vw, 1.45rem); font-weight: 400; line-height: 1.35; letter-spacing: -.01em; }
+        .about__nota { max-width: 270px; margin: 14px 0 0 auto; padding-right: 8%; font-family: var(--mono); font-size: .72rem; line-height: 1.5; text-align: justify; color: var(--texto); }
+        .about__nota--izq { margin-left: 6%; margin-right: auto; padding: 0; }
+
+        .ruta { position: relative; max-width: 860px; margin: 40px auto 0; aspect-ratio: 800 / 760; }
+        .ruta svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+        .ruta path { fill: none; stroke: #777; stroke-width: 1.4; }
+        .ruta path.negra { stroke: var(--negro); stroke-width: 1.8; }
+        .nodo { position: absolute; width: 30%; font-family: var(--mono); font-size: .68rem; line-height: 1.45; }
+        .nodo h3 { font-family: var(--fuente); font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 400; letter-spacing: -.01em; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .nodo h3::before { content: ""; width: 8px; height: 8px; border: 1px solid var(--negro); border-radius: 50%; background: #fff; flex: none; }
+        .nodo--ini h3::before { background: var(--negro); }
+        .nodo small { display: block; color: var(--suave); margin-bottom: 3px; }
+        .nodo--izq { text-align: right; transform: translateX(-100%); }
+        .nodo--izq h3 { justify-content: flex-end; flex-direction: row-reverse; }
+
+        .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 56px; }
+        .cv-col { padding: 34px; background: #f1f1f2; }
+        .cv-col h4 { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--suave); padding-bottom: 12px; border-bottom: 1px solid var(--negro); margin-bottom: 20px; }
+        .item-cv { margin-bottom: 20px; }
+        .item-cv:last-child { margin-bottom: 0; }
+        .item-cv__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+        .item-cv__t { font-size: 1.05rem; font-weight: 500; }
+        .item-cv__y { font-family: var(--mono); font-size: .72rem; color: var(--suave); white-space: nowrap; }
+        .item-cv__s { font-family: var(--mono); font-size: .74rem; color: var(--texto); margin-top: 2px; }
+        .item-cv__d { font-family: var(--mono); font-size: .72rem; color: var(--suave); margin-top: 4px; line-height: 1.55; text-align: justify; }
+        .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+        .pill { padding: 5px 14px; border: 1px solid var(--negro); border-radius: var(--pill); font-family: var(--mono); font-size: .72rem; background: #fff; }
+        .about__pie { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; font-family: var(--mono); font-size: .75rem; }
+        .about__pie .nota-marker { font-size: 2.4rem; }
+
+        /* ============ CONTACTO ============ */
+        .cta { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: clamp(32px, 5vw, 64px); background: var(--negro); color: #fff; }
+        .cta h2 { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+        .cta__txt p { font-family: var(--mono); font-size: .8rem; margin-top: 16px; color: rgba(255,255,255,.7); max-width: 44ch; }
+        .cta__enlaces { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+        form { display: grid; gap: 14px; }
+        label { display: grid; gap: 6px; font-family: var(--mono); font-size: .72rem; }
+        input, textarea { width: 100%; padding: 14px 16px; font: 400 .9rem var(--fuente); color: #fff; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.35); border-radius: 0; }
+        input:focus, textarea:focus { outline: none; border-bottom-color: #fff; }
+        textarea { min-height: 120px; resize: vertical; }
+        .pie { padding: 28px 16px; text-align: center; font-family: var(--mono); font-size: .72rem; color: var(--suave); }
+
+        /* ============ MODO JUEGO ============ */
+        .hud { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: .7rem; padding: 6px 12px; border: 1px solid var(--negro); border-radius: var(--pill); background: #fff; white-space: nowrap; }
+        .hud__bar { width: 56px; height: 6px; border: 1px solid var(--negro); border-radius: var(--pill); overflow: hidden; background: #fff; }
+        .hud__bar i { display: block; height: 100%; width: 0; background: var(--negro); transition: width .5s cubic-bezier(.16, 1, .3, 1); }
+        .hud.sube { animation: pop .5s; }
+        @keyframes pop { 40% { transform: scale(1.18) rotate(-3deg); } }
+
+        .cursor { position: fixed; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; background: #fff; border-radius: 50%; mix-blend-mode: difference; pointer-events: none; z-index: 3000; transition: width .25s, height .25s, margin .25s, opacity .2s; opacity: 0; }
+        .cursor.on { opacity: 1; }
+        .cursor.grande { width: 72px; height: 72px; margin: -36px 0 0 -36px; }
+        @media (hover: none) { .cursor { display: none; } }
+
+        .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 160%); background: var(--negro); color: #fff; font-family: var(--mono); font-size: .78rem; padding: 12px 22px; border-radius: var(--pill); z-index: 3100; transition: transform .45s cubic-bezier(.34, 1.56, .64, 1); pointer-events: none; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+        .toast.ver { transform: translate(-50%, 0); }
+
+        .drag { cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+        .drag.agarrado { cursor: grabbing; z-index: 20; }
+        .blobs svg { position: relative; }
+        .letra { display: inline-block; transition: transform .35s cubic-bezier(.34, 1.56, .64, 1); }
+        .letra:hover { transform: translateY(-.12em) rotate(-8deg); }
+        .pista { font-family: var(--mono); font-size: .7rem; color: var(--suave); margin-left: 14px; align-self: center; }
+
+        .sticker { position: absolute; z-index: 3; font-family: var(--marker); padding: 4px 14px; background: #fff; border: 2px solid var(--negro); border-radius: var(--pill); rotate: var(--rot, 0deg); font-size: clamp(.9rem, 1.6vw, 1.3rem); box-shadow: 4px 4px 0 var(--negro); }
+        .sticker--negro { background: var(--negro); color: #fff; box-shadow: 4px 4px 0 #8a8a8f; }
+        .obras--grid .obra, .obras--feed .obra { transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+        .obras--grid .obra:hover, .obras--feed .obra:hover { transform: rotate(var(--r, 0deg)) scale(1.025); z-index: 3; }
+
+        .ruta .nodo { opacity: .3; transition: opacity .4s; }
+        .ruta .nodo.on { opacity: 1; }
+        .ruta .nodo.on h3::before { background: var(--negro); }
+        .ruta .pt { transition: fill .3s; }
+        .fin { text-align: center; margin-top: 24px; animation: pop .6s; }
+        .fin p { font-size: .8rem; margin-bottom: 10px; }
+        @media (max-width: 640px) { .ruta .nodo { opacity: 1; } }
+        @media (prefers-reduced-motion: reduce) { .cursor { display: none; } .letra, .obra { transition: none !important; } }
+
+        .hero__foto { position: absolute; z-index: 3; right: 6%; top: 24px; width: clamp(130px, 17vw, 240px); margin: 0; rotate: 4deg; background: #d4d4d7; box-shadow: 8px 8px 0 var(--negro); }
+        .hero__foto img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .35s; pointer-events: none; }
+        .hero__foto:hover img { filter: none; }
+        .hero__foto figcaption { position: absolute; left: 0; bottom: -26px; font-family: var(--mono); font-size: .68rem; }
+        .hero__foto.vacia { aspect-ratio: 3 / 4; display: grid; place-items: center; }
+        .hero__foto.vacia::after { content: "tu foto aquí"; font-family: var(--marker); font-size: 1.2rem; color: #8a8a8f; text-align: center; }
+        @media (max-width: 960px) { .hero__foto { top: 16px; right: 16px; width: 110px; } }
+
+        .proto { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding: clamp(24px, 5vw, 56px); background: #ececee; }
+        .proto__txt h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 500; letter-spacing: -.03em; margin-bottom: 12px; }
+        .proto__txt p { font-family: var(--mono); font-size: .82rem; line-height: 1.7; color: var(--suave); max-width: 44ch; margin-bottom: 22px; }
+        .movil { position: relative; width: clamp(250px, 26vw, 340px); aspect-ratio: 9 / 18.5; background: var(--negro); border-radius: 46px; padding: 12px; box-shadow: 12px 12px 0 var(--negro); rotate: -2deg; justify-self: center; }
+        .movil iframe { width: 100%; height: 100%; border: 0; border-radius: 34px; background: #fff; display: block; }
+        .movil__notch { position: absolute; top: 20px; left: 50%; translate: -50% 0; width: 76px; height: 20px; background: var(--negro); border-radius: var(--pill); z-index: 2; pointer-events: none; }
+        @media (max-width: 960px) { .proto { grid-template-columns: 1fr; } .movil { rotate: 0deg; } }
+
+        .social__intro { font-family: var(--mono); font-size: .82rem; color: var(--suave); max-width: 60ch; margin: 18px 0 40px; line-height: 1.7; }
+        .social__txt { font-family: var(--mono); font-size: .78rem; color: var(--suave); margin: -4px 0 18px; }
+        .feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+        .post { position: relative; margin: 0; aspect-ratio: var(--ratio, 1 / 1); background: #d4d4d7; overflow: hidden; display: grid; place-items: center; transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+        .post:hover { transform: rotate(var(--r, 0deg)) scale(1.03); z-index: 3; }
+        .post__ph { font-family: var(--marker); font-size: 2.4rem; color: #9a9aa0; }
+        .post img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; place-items: center; z-index: 3300; cursor: zoom-out; padding: 24px; }
+        .lightbox.ver { display: grid; }
+        .lightbox img { max-width: 100%; max-height: 92vh; object-fit: contain; }
+        @media (max-width: 640px) { .feed-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 960px) {
+            .obras--grid { grid-template-columns: repeat(2, 1fr); }
+            .hero__fila { grid-template-columns: 1fr; align-items: start; }
+            .catalogo { grid-template-columns: 40px 1fr auto; }
+            .catalogo__txt { display: none; }
+            .servicios, .dos, .pasos, .cv-grid, .cta, .proy-hero, .resultado { grid-template-columns: 1fr; }
+            .servicio + .servicio { padding-left: 0; border-left: 0; border-top: 1px solid var(--borde); }
+            .proy-meta { grid-template-columns: 1fr 1fr; }
+            .cabecera__in { grid-template-columns: 1fr auto; }
+            .burger { display: block; }
+            .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--hoja); padding: 20px 28px; border-bottom: 1px solid var(--borde); display: none; }
+            .nav.abierto { display: block; }
+            .nav ul { flex-direction: column; gap: 16px; }
+            .cabecera__boton { display: none; }
+        }
+        @media (max-width: 640px) {
+            .about__foto { aspect-ratio: 4 / 3; }
+            .obras--grid { grid-template-columns: 1fr 1fr; }
+            .obras--list .obra { grid-template-columns: 70px 1fr; }
+            .obras--list .obra__info em.cat, .obras--list .obra__info em.anio { display: none; }
+            .catalogo__mini { display: none; }
+            .catalogo { grid-template-columns: 36px 1fr; }
+            .ruta { aspect-ratio: auto; display: grid; gap: 22px; margin-top: 28px; }
+            .ruta svg { display: none; }
+            .nodo, .nodo--izq { position: static !important; width: auto; transform: none; text-align: left; }
+            .nodo--izq h3 { flex-direction: row; justify-content: flex-start; }
+            .about__nota, .about__nota--izq { margin: 14px 0 0; padding: 0; max-width: none; }
+            .galeria { grid-template-columns: 1fr; }
+            .galeria figure:first-child { grid-column: auto; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="contenedor">
+
+    <!-- ============ CABECERA ============ -->
+    <header class="cabecera">
+        <div class="cabecera__in">
+            <a href="#inicio" class="logo" id="logo-home">Stteveworld</a>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <ul>
+                    <li><a href="#trabajos" id="nav-trabajos">Trabajos</a></li>
+                    <li><a href="#social" id="nav-social">Social</a></li>
+                    <li><a href="#servicios" id="nav-servicios">Servicios</a></li>
+                    <li><a href="#sobre-mi" id="nav-sobre">Sobre mí</a></li>
+                    <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cabecera__der">
+                <div class="hud" id="hud" title="Proyectos explorados"><span>XP <b id="xp">0</b>/<span id="xp-total">11</span></span><span class="hud__bar"><i id="xp-bar"></i></span></div>
+                <a href="#contacto" class="boton cabecera__boton">Hablemos</a>
+                <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ VISTA 1: HOME ============ -->
+        <div id="vista-home">
+
+            <section id="inicio" class="hoja hoja--primero hero">
+                <div class="hero__fila">
+                    <h1>Stteve<br>world<sup>°</sup></h1>
+                    <p class="hero__txt">Soy Amanda Pires, diseñadora UX/UI y de marca. Combino interfaz, diseño editorial, branding e ilustración para transformar información compleja en soluciones claras y con intención.</p>
+                    <div class="hero__links">
+                        <a href="mailto:piresamanda40@gmail.com">Email</a>
+                        <a href="https://linkedin.com/in/hellostteveworld" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+                <figure class="hero__foto drag" id="foto-hero">
+                    <img src="img/amanda.webp" alt="Amanda Pires" style="object-position:50% 30%" onerror="this.style.display='none'; this.parentNode.classList.add('vacia')">
+                    <figcaption>Amanda ©26</figcaption>
+                </figure>
+                <div class="blobs" aria-hidden="true">
+                    <svg viewBox="0 0 200 160"><path fill-rule="evenodd" d="M30 80C20 30 90 5 130 25C180 45 195 100 150 135C110 165 40 140 30 80ZM70 80C70 55 105 42 125 60C145 80 130 115 100 118C80 120 68 100 70 80Z"/></svg>
+                    <svg viewBox="0 0 200 160"><path fill-rule="evenodd" d="M25 75C30 25 100 10 140 35C185 60 190 110 140 138C95 160 30 130 25 75ZM68 78C72 52 108 45 126 66C142 86 122 118 96 116C76 114 66 96 68 78Z"/></svg>
+                    <svg viewBox="0 0 200 160"><path fill-rule="evenodd" d="M35 85C25 35 95 8 135 28C178 50 190 105 148 138C108 165 45 140 35 85ZM74 84C72 58 108 48 124 66C140 84 128 112 102 116C84 118 76 102 74 84Z"/></svg>
+                    <span class="nota-marker">not.</span><span class="pista">← juega: arrastra los blobs</span>
+                </div>
+            </section>
+
+            <section id="categorias" class="hoja">
+                <div class="cab-lista">
+                    <h2>Catálogos<sup class="cnt">(4)</sup></h2>
+                    <p>Cuatro líneas de trabajo. Entra en cada catálogo para ver sus proyectos.</p>
+                </div>
+                <div id="catalogos-home"></div>
+                <a href="#social" class="catalogo" id="home-social" style="border-top:0; border-bottom:1px solid var(--negro);">
+                    <span class="catalogo__num">EXTRA<br>★</span>
+                    <span class="catalogo__nom">Social media<sup>(2)</sup></span>
+                    <span class="catalogo__txt">BTS × Netmind en redes y nacimientos del equipo BTS.</span>
+                    <span class="catalogo__mini"></span>
+                </a>
+                <div style="margin-top:36px; text-align:center;">
+                    <a href="#trabajos" class="boton" id="link-todos-trabajos">Ver todos los proyectos →</a>
+                </div>
+            </section>
+
+            <section id="servicios" class="hoja">
+                <div class="cab-lista">
+                    <h2>Servicios</h2>
+                    <p>Desde la identidad de marca hasta el prototipado en Figma y la maquetación web con HTML/CSS.</p>
+                </div>
+                <div class="servicios">
+                    <article class="servicio">
+                        <span class="etiqueta">01 — Estrategia</span>
+                        <h3>Branding & Identidad Visual</h3>
+                        <p>Recursos visuales, presentaciones corporativas y sistemas de diseño para marcas nacionales e internacionales.</p>
+                    </article>
+                    <article class="servicio">
+                        <span class="etiqueta">02 — Producto</span>
+                        <h3>UX/UI & Prototipado</h3>
+                        <p>Interfaces intuitivas y prototipos navegables en Figma enfocados en resolver necesidades reales.</p>
+                    </article>
+                    <article class="servicio">
+                        <span class="etiqueta">03 — Contenido</span>
+                        <h3>Editorial & Ilustración</h3>
+                        <p>Traducción visual de conceptos complejos, maquetación editorial e ilustración científica y divulgativa.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ VISTA 2: TRABAJOS ============ -->
+        <div id="vista-trabajos" hidden>
+            <section class="hoja hoja--primero">
+                <h1 class="trab-titulo">Trabajos<sup class="cnt" id="trab-total"></sup></h1>
+                <div class="trab-barra">
+                    <div class="filtros" id="filtros"></div>
+                    <div class="vistas" id="vistas">
+                        <button class="vista-btn activo" data-vista="grid">Grid</button>
+                        <button class="vista-btn" data-vista="list">List</button>
+                        <button class="vista-btn" data-vista="feed">Feed</button>
+                        <button class="vista-btn" data-vista="full">Full</button>
+                    </div>
+                </div>
+                <div class="obras obras--grid" id="obras"></div>
+            </section>
+        </div>
+
+        <!-- ============ VISTA 3: PROYECTO ============ -->
+        <div id="vista-proyecto" hidden>
+            <section class="hoja hoja--primero" id="contenido-proyecto"></section>
+        </div>
+
+        <!-- ============ VISTA 4: SOBRE MÍ ============ -->
+        <div id="vista-sobre" hidden>
+            <section class="hoja hoja--primero about">
+
+                <div class="about__cab">
+                    <div class="about__foto"><img src="img/amanda-estudio.webp" alt="Amanda Pires" style="object-position:50% 62%" onerror="this.style.display='none'"></div>
+                    <h1 class="about__titulo">Sobre mí</h1>
+                    <span class="sticker drag" style="left:5%; top:16%; --rot:-8deg">arrástrame ↗</span>
+                    <span class="sticker sticker--negro drag" style="right:6%; top:8%; --rot:6deg">Bilbao °</span>
+                    <span class="sticker drag" style="left:11%; bottom:4%; --rot:4deg">menos ruido ★</span>
+                    <span class="sticker sticker--negro drag" style="right:9%; bottom:12%; --rot:-5deg">UX/UI</span>
+                </div>
+
+                <p class="about__intro">Soy diseñadora UX/UI y gráfica en Bilbao. Trabajo con marcas y personas que necesitan claridad: mi enfoque es atento, directo y apoyado en rigor técnico.</p>
+                <p class="about__nota">Creo que el buen diseño no decora, ordena. Es el espacio donde la información compleja se vuelve clara, funcional y coherente, con menos ruido y más intención. Del concepto a la ejecución digital, adaptado a cada soporte.</p>
+
+                <p class="pista" style="text-align:center; display:block; margin:36px 0 0;">↓ baja y mueve la ★ por mi recorrido</p>
+                <div class="ruta" id="ruta">
+                    <svg viewBox="0 0 800 760" aria-hidden="true">
+                        <path id="ruta-base" d="M520 40C440 120 600 200 460 260C320 320 120 300 160 420C200 540 560 440 640 520C700 580 520 620 560 720"/>
+                        <path id="ruta-prog" class="negra" d="M520 40C440 120 600 200 460 260C320 320 120 300 160 420C200 540 560 440 640 520C700 580 520 620 560 720"/>
+                        <circle class="pt" cx="520" cy="40" r="6" fill="#fff" stroke="#0b0b0b" stroke-width="1.5"/>
+                        <circle class="pt" cx="460" cy="260" r="6" fill="#fff" stroke="#0b0b0b" stroke-width="1.5"/>
+                        <circle class="pt" cx="160" cy="420" r="6" fill="#fff" stroke="#0b0b0b" stroke-width="1.5"/>
+                        <circle class="pt" cx="640" cy="520" r="6" fill="#fff" stroke="#0b0b0b" stroke-width="1.5"/>
+                        <circle class="pt" cx="560" cy="720" r="6" fill="#fff" stroke="#0b0b0b" stroke-width="1.5"/>
+                        <text x="536" y="34" font-family="Space Mono, monospace" font-size="12" fill="#0b0b0b">START</text>
+                        <text x="576" y="738" font-family="Space Mono, monospace" font-size="12" fill="#0b0b0b">FIN ★</text>
+                        <g id="player"><circle r="15" fill="#0b0b0b"/><text text-anchor="middle" y="6" font-size="16" fill="#fff">★</text></g>
+                    </svg>
+                    <div class="nodo nodo--ini nodo--izq" style="left:56%; top:34%;">
+                        <h3>Formación</h3><small>2021 — 2023 · CSDI Kunsthal</small>
+                        Estudios Superiores en Diseño Gráfico. La base: retícula, tipografía y criterio.
+                    </div>
+                    <div class="nodo" style="left:23%; top:54%;">
+                        <h3>Ilustración</h3><small>2023 — 2025 · CEADP Arte</small>
+                        Grado Superior en Ilustración. Narrativa visual, color y colaboración con Biogune.
+                    </div>
+                    <div class="nodo nodo--izq" style="left:77%; top:66%;">
+                        <h3>Diseño digital</h3><small>2025 — 2026 · LABASAD, NETT</small>
+                        Dos másteres, y práctica real en MAKMA Studio y BTS Made Strategy.
+                    </div>
+                    <div class="nodo nodo--izq" style="left:68%; top:92%;">
+                        <h3>UX/UI</h3><small>2026 · Neoland</small>
+                        Del research al prototipo en Figma.
+                    </div>
+                </div>
+
+                <div class="fin" id="fin" hidden>
+                    <p class="mono">★ nivel completado</p>
+                    <a href="#trabajos" class="boton" id="ir-trabajos">Ver los trabajos →</a>
+                </div>
+
+                <div class="cv-grid">
+                    <div class="cv-col">
+                        <h4>Experiencia</h4>
+                        <div class="item-cv">
+                            <div class="item-cv__head"><span class="item-cv__t">BTS Made Strategy</span><span class="item-cv__y">2025 — 2026</span></div>
+                            <div class="item-cv__s">Diseñadora gráfica</div>
+                            <div class="item-cv__d">Presentaciones corporativas y materiales para clientes nacionales e internacionales. Recursos visuales para branding, campañas, eventos y comunicación digital. Contenido para redes sociales (colaboración BTS × Netmind y piezas de nacimientos). IA aplicada al diseño.</div>
+                        </div>
+                        <div class="item-cv">
+                            <div class="item-cv__head"><span class="item-cv__t">MAKMA Studio</span><span class="item-cv__y">2025</span></div>
+                            <div class="item-cv__s">Diseñadora gráfica</div>
+                            <div class="item-cv__d">Branding, identidad visual, diseño editorial y contenido para redes sociales. Apoyo en producción gráfica e impresos.</div>
+                        </div>
+                        <div class="item-cv">
+                            <div class="item-cv__head"><span class="item-cv__t">Biogune</span><span class="item-cv__y">2024</span></div>
+                            <div class="item-cv__s">Ilustración científica</div>
+                            <div class="item-cv__d">Traducción visual de conceptos complejos e ilustraciones divulgativas junto a equipos de investigación.</div>
+                        </div>
+                    </div>
+                    <div class="cv-col">
+                        <h4>Herramientas & Idiomas</h4>
+                        <div class="pills" style="margin-bottom:24px;">
+                            <span class="pill">Figma</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">InDesign</span><span class="pill">Procreate</span><span class="pill">HTML / CSS</span><span class="pill">WordPress</span><span class="pill">Power BI</span><span class="pill">GitHub</span><span class="pill">3ds Max</span>
+                        </div>
+                        <div class="item-cv__s" style="margin-bottom:8px;">Idiomas</div>
+                        <div class="pills">
+                            <span class="pill">Español · nativo</span><span class="pill">Português · nativo</span><span class="pill">English</span><span class="pill">Euskera</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__pie">
+                    <span>Bilbao, España — ©2026</span>
+                    <span class="nota-marker">menos ruido, más intención.</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ VISTA 5: SOCIAL MEDIA ============ -->
+        <div id="vista-social" hidden>
+            <section class="hoja hoja--primero">
+                <h1 class="trab-titulo">Social media<sup class="cnt">(2)</sup></h1>
+                <p class="social__intro">Contenido diseñado para redes sociales en BTS Made Strategy: la colaboración con Netmind y las piezas de bienvenida a los bebés del equipo.</p>
+                <div id="social-contenido"></div>
+            </section>
+        </div>
+
+        <!-- ============ CONTACTO ============ -->
+        <section id="contacto" class="hoja">
+            <div class="cta">
+                <div class="cta__txt">
+                    <h2>¿Tienes un proyecto en mente?</h2>
+                    <p>Cuéntame qué necesitas y te responderé lo antes posible. También podemos conectar por correo o LinkedIn.</p>
+                    <div class="cta__enlaces">
+                        <a class="boton boton--blanco" href="mailto:piresamanda40@gmail.com">piresamanda40@gmail.com</a>
+                        <a class="boton boton--borde" style="color:#fff; border-color:rgba(255,255,255,.5)" href="https://linkedin.com/in/hellostteveworld" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+                <form id="formulario">
+                    <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name"></label>
+                    <label>Email<input type="email" name="email" placeholder="tu@email.com" required autocomplete="email"></label>
+                    <label>Mensaje<textarea name="mensaje" placeholder="Cuéntame sobre tu proyecto..." required></textarea></label>
+                    <button type="submit" class="boton boton--blanco">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p>Stteveworld &copy; 2026 — Amanda Pires do Espirito Santo. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+<script>
+/* ============ 4 CATÁLOGOS ============ */
+const CATEGORIAS = {
+    ux:          { nombre: 'UX/UI',       texto: 'Apps y prototipos navegables en Figma: Nocta, DiAGO y Nubea.' },
+    branding:    { nombre: 'Branding',    texto: 'Identidad visual, tipografía y sistemas de marca: Eulalia, STTEVE y MAC.' },
+    editorial:   { nombre: 'Editorial',   texto: 'Maquetación y diseño corporativo: Transfondo, Conference y Evina.' },
+    ilustracion: { nombre: 'Ilustración', texto: 'Ilustración narrativa y editorial: Bizigunea y MAKMA.' }
+};
+
+const PROYECTOS = [
+    {
+        num: '01', id: 'nocta', cat: 'ux', titulo: 'Nocta',
+        subtitulo: 'App Ocio Nocturno',
+        resumen: 'App que reúne en un solo sitio los planes de ocio nocturno: categoriza los eventos, los ubica en el mapa y muestra si aún quedan entradas.',
+        rol: 'UX/UI Designer', anio: '2026', herramientas: 'Figma',
+        metodologia: 'Doble Diamante',
+        problema: 'La información sobre eventos nocturnos se encuentra excesivamente dispersa entre redes sociales, webs y blogs, lo que genera fatiga de búsqueda y frustración en el usuario.',
+        fases: [
+            { num: '01', titulo: 'User Research & Benchmark', desc: 'Realización de encuestas, entrevistas en profundidad y análisis competitivo (Fever, Ticketmaster, Instagram).' },
+            { num: '02', titulo: 'Arquitectura & Wireframes', desc: 'Definición de Personas (Aitana, David), User Journey Map, mapa del sitio y wireframes de baja fidelidad.' },
+            { num: '03', titulo: 'Diseño UI & Prototipo', desc: 'Creación del sistema visual nocturno (Dark UI), prototipado interactivo navegable y prueba de usuarios.' }
+        ],
+        queAprendi: 'A tomar decisiones de diseño fundamentadas en datos reales de usuario en lugar de intuiciones, completando por primera vez el flujo de diseño UX/UI de principio a fin.',
+        resultado: 'Un prototipo navegable fluido donde descubrir y guardar planes con mapa interactivo y aforo en tiempo real.',
+        enlace: '#', textoEnlace: 'Ver prototipo en Figma',
+        portada: 'img/nocta/portada.webp',
+        imagenes: ['img/nocta/1.webp', 'img/nocta/2.webp']
+    },
+    {
+        num: '02', id: 'diago', cat: 'ux', titulo: 'DiAGO',
+        subtitulo: 'App Rutinas Infantiles',
+        resumen: 'App de doble impacto diseñada para familias con niños de 3 a 10 años: fomenta la autonomía de los peques mediante rutinas gamificadas y ofrece un panel para los padres.',
+        rol: 'UX/UI Designer', anio: '2026', herramientas: 'Figma',
+        metodologia: 'Doble Diamante',
+        problema: 'Las rutinas cotidianas de los niños (lavarse los dientes, vestirse, ir a la cama) suelen derivar en discusiones familiares por falta de hábitos autónomos.',
+        fases: [
+            { num: '01', titulo: 'Investigación Familiar', desc: 'Entrevistas a familias, mapa de empatía y definición del doble arquetipo (padres gestores / niños jugadores).' },
+            { num: '02', titulo: 'Gamificación & UX', desc: 'Diseño de la mecánica de premios, personaje interactivo y experiencia lúdica simplificada para peques.' },
+            { num: '03', titulo: 'Panel de Control Padres', desc: 'Interfaz rápida para programar tareas, revisar progresos y gestionar recompensas en menos de 1 minuto.' }
+        ],
+        queAprendi:'Equilibrar dos perfiles de usuario totalmente opuestos en una misma app: simplicidad extrema y juego para niños, frente a control rápido y gestión eficiente para adultos.',
+        resultado:'Una solución digital probada con usuarios reales que convierte el desorden diario en hábitos positivos y autonomía para los niños.',
+        insignias: ['★ Votado mejor proyecto de la clase', 'Proyecto final de Bootcamp Neoland'],
+        enlace: '#', textoEnlace:'Ver prototipo navegable',
+        portada:'img/diago/cover.webp'
+    },
+  {
+    num: '03', 
+    id: 'nubea', 
+    cat: 'ux', 
+    titulo: 'Nubea',
+    subtitulo: 'Bienestar & Gestión Digital',
+    resumen: 'Plataforma oficial de salud mental desarrollada junto al Ministerio de Sanidad para reducir la ansiedad y el estrés provocados por la hiperconectividad.',
+    rol: 'UX/UI Designer · Líder del equipo', 
+    anio: '2026', 
+    herramientas: 'Figma',
+    metodologia: 'Design Sprint',
+    insignias: ['Proyecto grupal · 5 personas', 'Design Sprint de 5 días', 'Design Lab · Neoland'],
+    
+    // Configuración para la vista tipo Landing Page con mockups
+    landingHero: {
+        tituloPrincipal: '¿Estás con ansiedad?',
+        tituloResaltado: 'Te ayudamos aquí.',
+        descripcion: 'Una plataforma centrada en la calma y el acompañamiento emocional para prevenir el estrés y las crisis de salud mental en la ciudadanía.',
+        ctaTexto: 'Ver Prototipo',
+        ctaEnlace: 'https://www.figma.com/proto/...', // Enlace a tu prototipo
+        mockupPrincipal: 'img/nubea/portada.webp'
+    },
+
+    caracteristicasSeccion: [
+        {
+            titulo: 'Pre-crisis',
+            subtitulo: 'Anticipación y control emocional',
+            descripcion: 'Cuestionarios inteligentes de estado de ánimo que sirven como filtro para recomendar ejercicios personalizados.',
+            imagenMockup: 'img/nubea/1.webp'
+        },
+        {
+            titulo: 'Momento Crisis',
+            subtitulo: 'Soporte de emergencia SOS',
+            descripcion: 'Acceso inmediato a un botón de emergencia y técnicas de respiración guiada para activar el sistema simpático y lograr calma en minutos.',
+            imagenMockup: 'img/nubea/2.webp'
+        },
+        {
+            titulo: 'Post-crisis',
+            subtitulo: 'Diario y evolución',
+            descripcion: 'Registro emocional detallado para analizar lo ocurrido y hacer seguimiento de tu bienestar a lo largo del tiempo.',
+            imagenMockup: 'img/nubea/portada.webp'
+        }
+    ],
+
+    problema: 'El aumento de la ansiedad y crisis de salud mental debido a la hiperconectividad y las exigencias sociales, afectando especialmente a los jóvenes.',
+    fases: [
+        { num: '01', titulo: 'Entender e Idear', desc: 'Definición de Sprint Questions, User Persona (Ainoah) y mapeo del journey del usuario.' },
+        { num: '02', titulo: 'Diseño UI y Sistema', desc: 'Creación de la identidad visual basada en tonos morados pastel, tipografía Nunito y atmósfera relajante.' },
+        { num: '03', titulo: 'Prototipado y Testeo', desc: 'Validación del flujo de pantallas con usuarios reales y estructuración de futuribles (wearables y psicólogos).' }
+    ],
+    queAprendi: 'Diseñar interfaces empáticas enfocadas en la reducción de la ansiedad visual y la gestión de momentos críticos.',
+    resultado: 'Un producto digital sólido y validado, respaldado por el marco de salud institucional.',
+    enlace: '#', 
+    textoEnlace: 'Ver prototipo en Figma',
+    portada: 'img/nubea/portada.webp',
+    imagenes: ['img/nubea/1.webp','img/nubea/2.webp']
+},
+    {
+        num: '06', id: 'conference', cat: 'editorial', titulo: 'Conference',
+        subtitulo: 'Diseño Corporativo',
+        resumen: 'Sistema de recursos visuales, soportes editoriales y piezas gráficas para eventos profesionales e institucionales.',
+        rol: 'Diseño Gráfico Corporativo', anio: '2025', herramientas: 'Illustrator, InDesign',
+        metodologia: 'Comunicación Omnicanal',
+        problema: 'Mantener la coherencia de marca a través de múltiples soportes físicos y digitales durante un evento multitudinario.',
+        fases: [
+            { num: '01', titulo: 'Identidad del Evento', desc: 'Creación de la línea gráfica temática, tipografías del evento y paleta cromática corporativa.' },
+            { num: '02', titulo: 'Materiales Impresos', desc: 'Diseño de cartelería de gran formato, señalética de espacios, acreditaciones y guías editoriales.' },
+            { num: '03', titulo: 'Soportes Digitales', desc: 'Maquetación de presentaciones para ponentes, banners en vivo y creatividades para redes.' }
+        ],
+        queAprendi: 'Trabajar bajo sistemas modulares escalables que permiten adaptar textos e imágenes rápidamente durante la ejecución.',
+        resultado: 'Una línea gráfica uniforme y profesional que elevó la imagen del evento.',
+        enlace: '', textoEnlace: '',
+        portada: 'img/bts/portada.webp',
+        imagenes: ['img/bts/1.webp','img/bts/2.webp','img/bts/3.webp']
+    },
+    {
+    num: '08', id: 'mac', cat: 'branding', titulo: 'MAC',
+    subtitulo: 'Rebranding & Identidad Visual',
+    resumen: 'Rediseño integral de la identidad visual del Museo de Arte Contemporáneo de Niterói. Se desarrolló un logotipo sólido y eficaz apoyado en un sistema gráfico dinámico de formas geométricas que traslada el espíritu contemporáneo del museo a todos sus soportes.',
+    rol: 'Brand Designer', 
+    anio: '2026', 
+    herramientas: 'Illustrator, InDesign, Photoshop',
+    metodologia: 'Rebranding & Grid System',
+    problema: 'Diseñar un logotipo nuevo, eficaz y de alto impacto visual que modernice la imagen del MAC sin perder su esencia contemporánea, logrando además una gráfica adaptable a papelería, merchandising y cartelería exterior.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Rediseño del Logotipo', 
+            desc: 'Creación de un logotipo tipográfico limpio y potente con síntesis geométrica en la letra "A", garantizando legibilidad y legados contemporáneos.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Sistema Gráfico Dinámico', 
+            desc: 'Desarrollo de un patrón de bloques de color primarios (azul, rojo, negro) que actúa como lenguaje visual complementario al logo.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Aplicación en Soportes', 
+            desc: 'Implementación del sistema en identidades físicas (lanyards, camisetas), papelería corporativa y publicidad exterior (mupis).' 
+        }
+    ],
+    queAprendi: 'A equilibrar la sencillez tipográfica de un logotipo con un sistema gráfico complementario muy expresivo para enriquecer la comunicación del museo.',
+    resultado: 'Un logotipo moderno, memorable y funcional acompañado de una identidad visual adaptable que potencia la presencia de marca del MAC en cualquier formato.',
+    enlace: '', 
+    textoEnlace: '',
+    portada: 'img/mac/portada.webp',
+    imagenes: ['img/mac/1.webp', 'img/mac/2.webp','img/mac/3.webp']
+},
+
+{
+    num: '07', 
+    id: 'eulalia', 
+    cat: 'branding', 
+    titulo: 'Eulalia',
+    subtitulo: 'Licor de Eucalipto, Tipografía Custom & Packaging',
+    resumen: 'Identidad de marca y diseño de packaging para Eulalia, un licor artesanal elaborado con eucalipto. El proyecto gira en torno a Eukatype, una tipografía propia inspirada en la morfología de las hojas de eucalipto, aplicada en una etiqueta botánica sofisticada.',
+    rol: 'Brand, Packaging & Type Designer', 
+    anio: '2026', 
+    herramientas: 'Illustrator, Photoshop, Glyphs',
+    metodologia: 'Art Direction & Organic Type Design',
+    problema: 'Diseñar una identidad visual y de packaging para un licor premium que transmita origen natural y sofisticación, creando una tipografía custom (Eukatype) basada en las formas orgánicas y la nervadura de la hoja de eucalipto.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Estudio Botánico & Diseños Tipográfico', 
+            desc: 'Observación de las hojas y tallos del eucalipto para extraer trazos orgánicos, construyendo los caracteres de Eukatype para dar personalidad única al logotipo Eulalia.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Diseño de Etiqueta & Universo Gráfico', 
+            desc: 'Creación de la etiqueta combinando la textura botánica de la hoja, detalles dorados/refinados y composición editorial limpia para comunicar la graduación y notas del licor.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Fotografía de Producto & Estilismo', 
+            desc: 'Dirección de arte en la sesión fotográfica utilizando iluminación cálida, tonos oscuros, cristalería vintage y hojas frescas para resaltar el carácter artesanal de la bebida.' 
+        }
+    ],
+    queAprendi: 'A conectar el diseño tipográfico desde cero con el storytelling de un producto alimentario/bebida, logrando que el packaging refleje fielmente los ingredientes y la esencia natural de la marca.',
+    resultado: 'Una botella y marca de licor botánico distinguida, donde la tipografía custom y la etiqueta transmiten elegancia, frescura y autenticidad en el sector de licores premium.',
+    enlace: '', 
+    textoEnlace: '',
+    portada: 'img/eulalia/portada.webp',
+    imagenes: [
+        'img/eulalia/1.webp', 
+        'img/eulalia/2.webp',
+        'img/eulalia/3.webp',
+        'img/eulalia/4.webp'
+    ]
+},
+{
+    num: '08', 
+    id: 'stteve', 
+    cat: 'branding', 
+    titulo: 'STTEVE',
+    subtitulo: 'Sistemas Visuales, Identidad de Marca & Branding Editorial',
+    resumen: 'Desarrollo de marca personal y estudio visual bajo la premisa de "Diseño que construye sistemas". Un universo gráfico caracterizado por el contraste monocromático, la experimentación tipográfica con monograma "TT", patrones orgánicos abstractos y simbolismo conceptual aplicado a papelería, mupis y merchandising.',
+    rol: 'Brand Designer & Creative Director', 
+    anio: '2026', 
+    herramientas: 'Illustrator, Photoshop, InDesign',
+    metodologia: 'Visual System Design & Symbolism',
+    problema: 'Diseñar un sistema de identidad visual flexible y memorable para STTEVE Studio que conjugue una estructura tipográfica rigurosa, abstracción orgánica y simbolismo evocador, manteniendo la coherencia tanto en soportes físicos (papelería, textil) como en formatos de gran escala.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Sistemas Tipográficos & Monograma', 
+            desc: 'Desarrollo del logotipo principal "STTEVE" con ligadura distintiva entre la S y la T, y creación del isotipo "TT" estilizado para síntesis de marca en soportes reducidos.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Lenguaje Gráfico & Abstracción', 
+            desc: 'Creación del patrón de formas fluidas y curvas oscuras en capas, combinado con imaginería simbólica y retículas editoriales con manifiestos de diseño explícitos.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Despliegue de Soportes & Packaging', 
+            desc: 'Aplicación del sistema visual a papelería corporativa (sobres, tarjetas, cuadernos emboss), tote bags de tela, mupis publicitarios exteriores y streetwear técnico.' 
+        }
+    ],
+    queAprendi: 'A estructurar un sistema gráfico flexible donde la ligereza tipográfica y el rigor técnico conviven armónicamente con composiciones complejas, logrando una identidad con presencia sólida en múltiples plataformas.',
+    resultado: 'Una identidad visual de estudio contemporánea, sofisticada y con carácter propio que proyecta rigor estético, claridad estructural y flexibilidad en todos sus puntos de contacto.',
+    enlace: '#', 
+    textoEnlace: 'Ver sistema visual',
+    portada: 'img/stteve/portada.webp',
+    imagenes: [
+        'img/stteve/1.webp', 
+        'img/stteve/2.webp',
+        'img/stteve/3.webp',
+        'img/stteve/4.webp'
+    ]
+},
+{
+    num: '09', 
+    id: 'evina', 
+    cat: 'editorial', 
+    titulo: 'Evina',
+    subtitulo: 'Branding, Editorial & Packaging Evocativo',
+    resumen: 'Diseño editorial y de marca para Evina, una firma centrada en el empoderamiento, el movimiento y la libertad. El proyecto combina un catálogo de alta gama, piezas publicitarias en exterior y un packaging de unboxing inmersivo.',
+    rol: 'Editorial & Brand Designer', 
+    anio: '2026', 
+    herramientas: 'InDesign, Photoshop, Illustrator',
+    metodologia: 'Art Direction & Luxe Editorial Design',
+    problema: 'Transmitir un mensaje profundo de empoderamiento, sensualidad y libertad a través de una identidad visual elegante y contemporánea, alejándose de los clichés comerciales tradicionales.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Dirección de Arte & Concepto', 
+            desc: 'Definición de la paleta tonal, tipografía con carácter y selección de imaginería botánica y corpórea evocadora que celebra la esencia y libertad de la mujer.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Diseño Editorial & Maquetación', 
+            desc: 'Estructuración de la revista/catálogo de marca mediante retículas limpias, contrastes tipográficos y amplios espacios en blanco para dar respiración al mensaje.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Experiencia de Packaging & Exterior', 
+            desc: 'Desarrollo de las cajas de presentación con tarjetas de agradecimiento y su extensión a campañas publicitarias urbanas (mupis).' 
+        }
+    ],
+    queAprendi: 'A orquestar una narrativa visual sensible y poderosa donde el diseño editorial, la fotografía de arte y el packaging conversan en perfecta harmonía para conectar emocionalmente con el público.',
+    resultado: 'Una marca sólida, poética y contemporánea con un universo editorial impecable que transmite sofisticación, autenticidad y libertad en cada punto de contacto.',
+    enlace: '', 
+    textoEnlace: '',
+    portada: 'img/evina/portada.webp',
+    imagenes: [
+        'img/evina/1.webp', 
+        'img/evina/2.webp',
+        'img/evina/3.webp'
+    ]
+},
+{
+        num: '10', id: 'bizigunea', cat: 'ilustracion', titulo: 'Bizigunea',
+        subtitulo: 'Ilustración Narrativa',
+        resumen: 'Exploración de la ilustración conceptual y narrativa con un enfoque sensible, integrando composición y paletas evocadoras.',
+        rol: 'Ilustración', anio: '2025', herramientas: 'Procreate, Illustrator',
+        metodologia: 'Ilustración Narrativa',
+        problema: 'Transmitir emociones complejas y conceptos abstractos mediante el lenguaje de la ilustración gráfica.',
+        fases: [
+            { num: '01', titulo: 'Bocetado Conceptual', desc: 'Definición de la narrativa visual y pruebas de composición en bocetos rápidos.' },
+            { num: '02', titulo: 'Color & Textura', desc: 'Aplicación de paletas de color con alta carga emotiva y trabajo de textura digital manual.' },
+            { num: '03', titulo: 'Soportes de Aplicación', desc: 'Adaptación de las piezas a formatos de cartelismo, editorial y merchandising.' }
+        ],
+        queAprendi: 'Aprovechar la economía de recursos gráficos para maximizar la carga expresiva de cada pieza.',
+        resultado: 'Una colección gráfica versátil aplicable a proyectos editoriales y de comunicación.',
+        enlace: '', textoEnlace: '',
+        portada: 'img/bizigunea/portada.webp',
+        imagenes: ['img/bizigunea/portada.webp']
+},
+{
+    num: '12', 
+    id: 'trasfondo', 
+    cat: 'editorial', 
+    titulo: 'Trasfondo',
+    subtitulo: 'Revista Editorial: En los Límites de lo Kitsch, lo Feo y lo Absurdo',
+    resumen: 'Diseño y maquetación de una revista editorial cultural que explora los límites estéticos entre lo kitsch, lo "hortera", la imperfección y el arte contemporáneo. A través de artículos dedicados a figuras como Jenny Saville o análisis sobre "El placer de lo feo", la publicación cuestiona los cánones tradicionales de belleza mediante una retícula limpia y un tratamiento de imagen provocador.',
+    rol: 'Editorial Designer & Art Director', 
+    anio: '2026', 
+    herramientas: 'InDesign, Photoshop, Illustrator',
+    metodologia: 'Editorial Grid & Conceptual Art Direction',
+    problema: 'El reto principal consistió en abordar temas considerados "horteras", feos o extravagantes (lo kitsch, figuras grotescas, objetos fuera de contexto) manteniendo un estándar de diseño editorial sofisticado, legible y de alta gama, sin perder la provocación conceptual.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Concepto Editorial & Investigación', 
+            desc: 'Definición de la línea editorial centrada en la revisión crítica de lo feo, lo absurdo y lo kitsch como forma de resistencia estética y cuestionamiento de la belleza idealizada.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Retícula, Tipografía & Jerarquía', 
+            desc: 'Estructuración de una retícula suiza rígida con tipografía sans-serif rotunda y de gran impacto para cabeceras y titulares, en contraste con columnas de texto limpio que aportan balance.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Curaduría de Imagen & Maquetación', 
+            desc: 'Selección e integración de imágenes perturbadoras y poéticas (esculturas híbridas, arte surrealista, collages y la obra de Jenny Saville), jugando con recortes, superposiciones y espacios en blanco.' 
+        }
+    ],
+    queAprendi: 'A equilibrar el caos conceptual de estéticas disruptivas como el kitsch con el rigor de la maquetación editorial, demostrando que lo "feo" e "imperfecto" posee un enorme valor narrativo y artístico cuando se presenta bajo un sistema visual sólido.',
+    resultado: 'Una revista cultural provocadora y elegante que invita al lector a replantearse los juicios de valor estéticos, combinando crítica de arte con un diseño editorial impecable.',
+    enlace: '#', 
+    textoEnlace: 'Ver revista completa',
+    portada: 'img/trasfondo/portada.webp',
+    imagenes: [
+        'img/trasfondo/1.webp', 
+        'img/trasfondo/2.webp',
+        'img/trasfondo/3.webp'
+    ]
+},
+{
+    num: '11', 
+    id: 'makma', 
+    cat: 'ilustracion', 
+    titulo: 'MAKMA',
+    subtitulo: 'Ilustración Editorial & Prensa Cultural',
+    resumen: 'Serie de ilustraciones editoriales publicadas en MAKMA (Revista de Artes Visuales y Cultura Contemporánea). Creación de retratos y composiciones conceptuales para acompañar artículos, entrevistas y reseñas culturales de figuras destacadas.',
+    rol: 'Ilustradora Editorial', 
+    anio: '2026', 
+    herramientas: 'Photoshop, Procreate, Illustrator',
+    metodologia: 'Editorial Illustration & Conceptual Portrait',
+    problema: 'Capturar la esencia psicológica y el tono narrativo de cada artículo o personaje (filósofos, escritores, cineastas) para crear piezas visuales potentes que complementen la lectura en la edición digital del medio.',
+    fases: [
+        { 
+            num: '01', 
+            titulo: 'Análisis de Texto & Concepto', 
+            desc: 'Lectura analítica del artículo y extracción de las claves conceptuales o rasgos identitarios del personaje a ilustrar.' 
+        },
+        { 
+            num: '02', 
+            titulo: 'Bocetado & Retrato Analógico/Digital', 
+            desc: 'Desarrollo del estilo pictórico y lineal, trabajando la expresividad facial, las texturas y el contraste cromático.' 
+        },
+        { 
+            num: '03', 
+            titulo: 'Adaptación Editorial & Entrega', 
+            desc: 'Ajuste de formato y maquetación final para la cabecera e interior de los artículos en la plataforma digital de la revista.' 
+        }
+    ],
+    queAprendi: 'A trabajar bajo ritmos editoriales de prensa, sintetizando conceptos complejos en imágenes impactantes y manteniendo un estilo personal reconocible a lo largo de diversas publicaciones.',
+    resultado: 'Una colección de ilustraciones editoriales publicadas en un medio cultural de prestigio que enriquecen la experiencia de lectura y afianzan mi trayectoria como ilustradora de prensa.',
+    enlace: 'https://www.makma.net/?s=amanda+Pires', 
+    textoEnlace: 'Ver publicaciones en MAKMA',
+    portada: 'img/makma/portada.webp',
+    imagenes: [
+        'img/makma/1.webp',
+        'img/makma/2.webp',
+        'img/makma/3.webp',
+        'img/makma/4.webp'
+    ]
+}
+];
+
+const PROTOTIPOS = {
+    nocta: 'https://www.figma.com/proto/dXlES7ot8dPAAh34CoY9ov/Amanda.Pires---UI-Reto-2?node-id=0-1&t=bwyavQa8hoVeFqMy-1',
+    nubea: 'https://www.figma.com/proto/0ymlbG85IpJivZ293yvJuy/Grupo-1--UI---Nubea--Copy-?node-id=0-1&t=bwyavQa8hoVeFqMy-1',
+    diago: 'https://www.figma.com/proto/jVLmb5vBlaI9qiyQpt8ELb/Amanda.Pires---PFB---UI?node-id=212-1256&t=bwyavQa8hoVeFqMy-1'
+};
+PROYECTOS.forEach(p => { if (PROTOTIPOS[p.id]) { p.enlace = PROTOTIPOS[p.id]; p.prototipo = PROTOTIPOS[p.id]; } });
+
+const $ = (s) => document.querySelector(s);
+
+const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ 
+    '&': '&amp;', 
+    '<': '&lt;', 
+    '>': '&gt;', 
+    '"': '&quot;', 
+    "'": '&#39;' 
+}[c]));
+
+const vistas = { 
+    home: $('#vista-home'), 
+    trabajos: $('#vista-trabajos'), 
+    proyecto: $('#vista-proyecto'), 
+    sobre: $('#vista-sobre'), 
+    social: $('#vista-social') 
+};
+
+const estado = { filtro: 'todos', modo: 'grid' };
+
+const vistos = new Set();
+try { 
+    JSON.parse(localStorage.getItem('stteve-vistos') || '[]').forEach(id => vistos.add(id)); 
+} catch (e) {}
+
+function menuActivo(id) {
+    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('activo'));
+    if (id) $(id)?.classList.add('activo');
+}
+function mostrarVista(nombre, parametro = null) {
+    Object.values(vistas).forEach(v => v.hidden = true);
+    vistas[nombre].hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    $('#nav').classList.remove('abierto');
+    $('#burger').setAttribute('aria-expanded', 'false');
+
+    menuActivo(nombre === 'trabajos' ? '#nav-trabajos' : nombre === 'sobre' ? '#nav-sobre' : nombre === 'social' ? '#nav-social' : null);
+
+    if (nombre === 'home') renderCatalogosHome();
+    if (nombre === 'trabajos') {
+        if (parametro) estado.filtro = parametro;
+        renderFiltros();
+        renderObras();
+    }
+    if (nombre === 'proyecto' && parametro) renderProyecto(parametro);
+    if (nombre === 'sobre') requestAnimationFrame(initRuta);
+    if (nombre === 'social') renderSocial();
+}
+
+/* ---- HOME: 4 catálogos ---- */
+function renderCatalogosHome() {
+    const cont = $('#catalogos-home');
+    cont.innerHTML = Object.entries(CATEGORIAS).map(([key, c], i) => {
+        const lista = PROYECTOS.filter(p => p.cat === key);
+        const minis = lista.slice(0, 3).map(p => `<span style="background-image:url('${p.portada}')"></span>`).join('');
+        return `
+            <a href="#trabajos" class="catalogo" data-cat="${key}">
+                <span class="catalogo__num">LVL<br>0${i + 1}</span>
+                <span class="catalogo__nom">${esc(c.nombre)}<sup>(${lista.filter(p => vistos.has(p.id)).length}/${lista.length})${lista.every(p => vistos.has(p.id)) ? ' ★' : ''}</sup></span>
+                <span class="catalogo__txt">${esc(c.texto)}</span>
+                <span class="catalogo__mini">${minis}</span>
+            </a>`;
+    }).join('');
+    cont.querySelectorAll('.catalogo').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        mostrarVista('trabajos', a.dataset.cat);
+    }));
+}
+
+/* ---- TRABAJOS: filtros + vistas ---- */
+function renderFiltros() {
+    $('#trab-total').textContent = `(${PROYECTOS.length})`;
+    let html = `<button class="filtro ${estado.filtro === 'todos' ? 'activo' : ''}" data-f="todos">Todos<sup>(${PROYECTOS.length})</sup></button>`;
+    html += Object.entries(CATEGORIAS).map(([k, c]) =>
+        `<button class="filtro ${estado.filtro === k ? 'activo' : ''}" data-f="${k}">${esc(c.nombre)}<sup>(${PROYECTOS.filter(p => p.cat === k).length})</sup></button>`).join('');
+    const cont = $('#filtros');
+    cont.innerHTML = html;
+    cont.querySelectorAll('.filtro').forEach(b => b.addEventListener('click', () => {
+        estado.filtro = b.dataset.f;
+        renderFiltros();
+        renderObras();
+    }));
+}
+
+function renderObras() {
+    const lista = estado.filtro === 'todos' ? PROYECTOS : PROYECTOS.filter(p => p.cat === estado.filtro);
+    const cont = $('#obras');
+    cont.className = 'obras obras--' + estado.modo;
+    cont.innerHTML = lista.map((p, i) => `
+        <a href="#proyecto" class="obra" data-id="${p.id}" style="--r:${(i % 2 ? 1 : -1) * (1 + i % 3)}deg">
+            <div class="obra__img">
+                <span class="obra__ph">${esc(p.titulo)}</span>
+                <img src="${p.portada}" alt="${esc(p.titulo)}" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="obra__info">
+                <span>${p.num}</span>
+                <b>${esc(p.titulo)}</b>
+                <em class="cat">${esc(CATEGORIAS[p.cat].nombre)}</em>
+                <em class="anio">${esc(p.anio)}</em>
+            </div>
+        </a>`).join('');
+    cont.querySelectorAll('.obra').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        mostrarVista('proyecto', a.dataset.id);
+    }));
+}
+
+$('#vistas').addEventListener('click', (e) => {
+    const b = e.target.closest('.vista-btn');
+    if (!b) return;
+    estado.modo = b.dataset.vista;
+    document.querySelectorAll('.vista-btn').forEach(x => x.classList.toggle('activo', x === b));
+    renderObras();
+});
+
+/* ---- DETALLE ---- */
+function protoHTML(p) {
+    const src = 'https://www.figma.com/embed?embed_host=share&url=' + encodeURIComponent(p.prototipo);
+    return `
+        <div class="sec">
+            <div class="sec__head"><h2>Prototipo interactivo</h2><span class="etiqueta">tócalo →</span></div>
+            <div class="proto">
+                <div class="proto__txt">
+                    <h3>Pruébalo tú</h3>
+                    <p>Navega por ${esc(p.titulo)} como si la tuvieras en la mano: toca los botones y recorre el flujo completo. Si no carga en tu navegador, ábrelo directamente en Figma.</p>
+                    <a href="${esc(p.prototipo)}" class="boton" target="_blank" rel="noopener">Abrir en Figma ↗</a>
+                </div>
+                <div class="movil">
+                    <span class="movil__notch"></span>
+                    <iframe src="${src}" title="Prototipo ${esc(p.titulo)}" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>`;
+}
+
+/* ============ LANDING DE PRODUCTO ============ */
+const LP_ICONS = {
+    mapa:  '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/>',
+    aforo: '<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.3 6 5.5"/>',
+    ticket:'<path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z" transform="translate(0 2)"/><path d="M13 6v12" stroke-dasharray="2 2"/>',
+    aviso: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/>',
+    viaje: '<path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.700 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/>',
+    grupo: '<circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.700-5 6-5M22 20c0-3-2.700-5-6-5M8 20c0-3 1.800-5 4-5s4 2 4 5"/>',
+    estrella:'<path d="m12 3 2.800 5.700 6.200.9-4.500 4.400 1 6.200L12 17.200 6.500 20.200l1-6.200L3 9.600l6.200-.9z"/>',
+    panel: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3M8 17h6"/>',
+    juego: '<rect x="3" y="8" width="18" height="10" rx="5"/><path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>',
+    reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    corazon:'<path d="M12 20s-8-4.800-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 9c0 6.200-8 11-8 11z"/>',
+    sos:   '<circle cx="12" cy="12" r="9"/><path d="M8 10c0-1.500 1-2 2-2s2 .5 2 1.500S10 11 10 12M14 8v4M12 16h.01"/>',
+    libro: '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zM4 19V5M18 17H6"/>',
+    diario:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>'
+};
+const lpIco = (k) => `<span class="lp-ico"><svg viewBox="0 0 24 24" aria-hidden="true">${LP_ICONS[k] || LP_ICONS.estrella}</svg></span>`;
+
+const LANDINGS = {
+    nocta: {
+        a: '#2f6fe0', b: '#7fb0ff', fondo: '#000000',
+        kicker: 'App · Ocio nocturno',
+        titulo: 'Descubre, decide y', resaltado: 'sal esta noche',
+        desc: 'Todos los planes nocturnos de tu ciudad en un solo sitio: categorizados, ubicados en el mapa y con la disponibilidad de entradas a la vista.',
+        hero: ['img/nocta/app-evento.webp', 'img/nocta/app-home.webp'],
+        about: { texto: ['Nocta reúne los eventos que hoy están repartidos entre redes, webs y blogs. Menos tiempo buscando, más ganas de salir.', 'Reserva sin pago previo, enfoque 100 % en ocio nocturno y datos pensados para decidir rápido.'],
+                 chips: ['Mapa con Google Maps', 'Entradas disponibles', 'Reserva sin pago previo', 'Modo viaje'], img: 'img/nocta/app-home.webp' },
+        feats: [
+            { i: 'mapa', t: 'Mapa de eventos', d: 'Ubicación exacta de cada plan, sin preguntar a diez personas.' },
+            { i: 'ticket', t: 'Entradas a la vista', d: 'Ve si aún quedan antes de decidir. Sin comprarlas primero.' },
+            { i: 'aviso', t: 'Planes de última hora', d: 'Avisos de lo que pasa esta misma noche cerca de ti.' },
+            { i: 'aforo', t: 'Aforo en tiempo real', d: 'Datos verificados para no llevarte sorpresas.' }
+        ],
+        band: { img: 'img/nocta/app-evento.webp',
+                items: [ { i: 'viaje', t: 'Modo viaje', d: 'Detecta la ciudad automáticamente.' }, { i: 'grupo', t: 'Plan en grupo', d: 'Coordina el plan con tus amigos desde la app.' }, { i: 'estrella', t: 'Locales pequeños', d: 'Perfil, favoritos e historial para ganar visibilidad.' } ],
+                texto: 'Investigué con encuestas y entrevistas qué necesita quien sale de noche: ver los planes en un mapa, recibir avisos y tener toda la información en un único lugar.' },
+        pantallas: [ ['img/nocta/app-evento.webp', 'Detalle de evento'], ['img/nocta/app-home.webp', 'Inicio'] ]
+    },
+    diago: {
+        a: '#1a56b8', b: '#f0a8c8', fondo: '#06142c',
+        kicker: 'App · Rutinas infantiles',
+        titulo: 'Yo puedo', resaltado: 'solo',
+        desc: 'Una app para familias con niños de 3 a 10 años: rutinas gamificadas para ellos y un panel rápido para los padres. Cada pasito te hace más grande.',
+        hero: ['DEMO'],
+        about: { texto: ['Lavarse los dientes, vestirse o ir a la cama suelen acabar en discusión. DiAGO convierte cada rutina en un pequeño juego con premios.', 'Dos perfiles en una misma app: simplicidad y juego para los niños, control rápido para los adultos.'],
+                 chips: ['Rutinas gamificadas', 'Personaje interactivo', 'Premios y recompensas', 'Panel para padres'], img: 'img/diago/ninos.webp' },
+        feats: [
+            { i: 'juego', t: 'Rutinas gamificadas', d: 'Mecánica de premios simple para que los peques lo hagan solos.' },
+            { i: 'estrella', t: 'Personaje interactivo', d: 'Un compañero que acompaña cada paso del día.' },
+            { i: 'panel', t: 'Panel de padres', d: 'Programa tareas y revisa progresos.' },
+            { i: 'reloj', t: 'En menos de 1 min', d: 'Gestión de recompensas rápida para los adultos.' }
+        ],
+        band: { img: 'img/diago/ninos-2.webp',
+                items: [ { i: 'corazon', t: 'Autonomía', d: 'Hábitos positivos sin discusiones.' }, { i: 'aforo', t: 'Datos en tiempo real', d: 'Los padres ven cómo va cada rutina.' }, { i: 'estrella', t: 'Premios', d: 'Un banco de recompensas visual con iconos.' } ],
+                texto: 'Estética divertida, organizada y amable, pensada para las familias. Probado con usuarios reales y votado el mejor proyecto de la clase.' },
+        pantallas: []
+    },
+    nubea: {
+        a: '#8f7bd1', b: '#b8e0e0', fondo: '#171428',
+        kicker: 'App · Bienestar emocional',
+        titulo: '¿Estás con', resaltado: 'ansiedad?',
+        desc: 'Una app centrada en la calma y el acompañamiento emocional para prevenir el estrés y las crisis de salud mental. Entendemos lo que sientes, te ayudamos a gestionarlo.',
+        hero: ['img/nubea/portada.webp', 'img/nubea/1.webp'],
+        about: { texto: ['Nubea nace de un problema real: la ansiedad que produce la hiperconectividad y las exigencias sociales, sobre todo en los jóvenes.', 'Acompaña antes, durante y después de una crisis, con técnicas de calma y contenido de expertos.'],
+                 chips: ['Pre-crisis', 'Modo SOS', 'Diario emocional', 'Contenido de expertos'], img: 'img/nubea/2.webp' },
+        feats: [
+            { i: 'corazon', t: 'Estado de ánimo', d: 'Cuestionarios que recomiendan ejercicios personalizados.' },
+            { i: 'sos', t: 'Botón SOS', d: 'Acceso inmediato y respiración guiada en una crisis.' },
+            { i: 'diario', t: 'Diario emocional', d: 'Registro para analizar lo ocurrido y ver tu evolución.' },
+            { i: 'libro', t: 'Contenido experto', d: 'Recursos educativos creados por profesionales.' }
+        ],
+        band: { img: 'img/nubea/portada.webp',
+                items: [ { i: 'aviso', t: 'Pre-crisis', d: 'Anticipación y control emocional.' }, { i: 'sos', t: 'Crisis', d: 'Soporte de emergencia y técnicas de calma.' }, { i: 'diario', t: 'Post-crisis', d: 'Diario y seguimiento de tu bienestar.' } ],
+                texto: 'Diseñada en un Design Sprint de 5 días con un equipo de 5 personas, alineada con las iniciativas del Plan de Acción de Salud Mental. En las pruebas destacaron la paleta, los degradados y la claridad del diseño.' },
+        pantallas: [ ['img/nubea/portada.webp', 'Inicio'], ['img/nubea/1.webp', 'Pre-crisis'], ['img/nubea/2.webp', 'Crisis'] ]
+    }
+};
+
+function landingHTML(p) {
+    const L = LANDINGS[p.id];
+    const demo = p.prototipo ? `<div class="lp-ph"><button class="lp-demo" data-src="${esc('https://www.figma.com/embed?embed_host=share&url=' + encodeURIComponent(p.prototipo))}">${esc(p.titulo)}<small>toca para probar el prototipo</small></button></div>` : '';
+    const heroHTML = L.hero.map(h => h === 'DEMO' ? demo : `<img src="${h}" alt="Pantalla de ${esc(p.titulo)}" onerror="this.remove()">`).join('');
+    const img = (src, alt) => src ? `<img src="${src}" alt="${esc(alt)}" loading="lazy" onerror="this.closest('.lp-stage').style.display='none'">` : '';
+    const stage = (src, alt) => src ? `<div class="lp-stage">${img(src, alt)}</div>` : (p.prototipo ? `<div class="lp-stage">${demo}</div>` : '');
+    return `
+    <div class="lp" style="--a:${L.a}; --b:${L.b}; --fondo-hero:${L.fondo}">
+        <div class="lp-hero">
+            <div class="lp-hero__in">
+                <div>
+                    <span class="lp-kicker">${esc(L.kicker)}</span>
+                    <h2>${esc(L.titulo)} <b>${esc(L.resaltado)}</b></h2>
+                    <p>${esc(L.desc)}</p>
+                    <div class="lp-cta">
+                        ${p.prototipo ? `<a class="lp-btn" href="${esc(p.prototipo)}" target="_blank" rel="noopener">Ver prototipo ↗</a>` : ''}
+                        <button class="lp-btn lp-btn--borde" data-ir="cn-tabs">Ver el proceso ↓</button>
+                    </div>
+                </div>
+                <div class="lp-phones">${heroHTML}</div>
+            </div>
+            <svg class="lp-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70C240 130 480 130 720 80S1200 -10 1440 50V120H0z"/></svg>
+        </div>
+
+        <div class="lp-bloque">
+            <h3 class="lp-titulo">Sobre <span>la app</span></h3>
+            <div class="lp-about">
+                <div>
+                    ${L.about.texto.map(t => `<p>${esc(t)}</p>`).join('')}
+                    <div class="lp-about__chips">${L.about.chips.map(c => `<span>${esc(c)}</span>`).join('')}</div>
+                </div>
+                ${stage(L.about.img, p.titulo)}
+            </div>
+        </div>
+
+        <div class="lp-bloque" style="padding-top:0">
+            <div class="lp-feats">
+                ${L.feats.map(f => `<div class="lp-feat">${lpIco(f.i)}<h4>${esc(f.t)}</h4><p>${esc(f.d)}</p></div>`).join('')}
+            </div>
+        </div>
+
+        <div class="lp-band">
+            <div class="lp-bloque">
+                ${stage(L.band.img, p.titulo)}
+                <div class="lp-band__lista">
+                    ${L.band.items.map(f => `<div class="lp-item">${lpIco(f.i)}<div><h4>${esc(f.t)}</h4><p>${esc(f.d)}</p></div></div>`).join('')}
+                </div>
+                <p class="lp-band__txt">${esc(L.band.texto)}</p>
+            </div>
+        </div>
+
+        ${L.pantallas.length ? `
+        <div class="lp-bloque">
+            <h3 class="lp-titulo">Pantallas <span>de la app</span></h3>
+            <div class="lp-shots">
+                ${L.pantallas.map(([src, cap]) => `<figure class="lp-stage" style="margin:0">${img(src, cap)}<figcaption>${esc(cap)}</figcaption></figure>`).join('')}
+            </div>
+        </div>` : ''}
+    </div>`;
+}
+
+/* ============ CASO NOCTA: puntos clave, bien ordenados ============ */
+function casoNocta() {
+    const hd = (id, num, titulo, tag) => `<div class="sec__head"><h2>${num} — ${titulo}</h2><span class="etiqueta">${tag}</span></div>`;
+    return `
+    <div class="cn-tabs" id="cn-tabs">
+        <button class="cn-tab activo" data-t="cn-inv">Investigación</button>
+        <button class="cn-tab" data-t="cn-usr">Usuarios</button>
+        <button class="cn-tab" data-t="cn-est">Estrategia</button>
+        <button class="cn-tab" data-t="cn-ia">Arquitectura</button>
+        <button class="cn-tab" data-t="cn-mvp">MVP</button>
+        <button class="cn-tab" data-t="cn-dis">Diseño</button>
+    </div>
+
+    <section class="cn" id="cn-inv">
+        ${hd('cn-inv', '01', 'Investigación', 'Benchmark · DAFO · Encuesta')}
+        <p class="cn__lead">Tres competidores, una encuesta y cuatro entrevistas para saber dónde está el hueco.</p>
+
+        <div class="cn__sub">Benchmark</div>
+        <div class="cn-grid3">
+            <div class="cn-card"><span class="cn-tag">Directa</span><h4>Fever</h4>
+                <p><b>Bien:</b> buscador, categorías y mapa; comprar con pocos pasos.</p>
+                <p><b>Falla:</b> solo vende lo de su plataforma y no filtra por precio.</p></div>
+            <div class="cn-card"><span class="cn-tag">Directa</span><h4>Ticketmaster</h4>
+                <p><b>Bien:</b> navegación guiada y mapa de asientos.</p>
+                <p><b>Falla:</b> muchos pasos, cargos extra y poca visibilidad de locales pequeños.</p></div>
+            <div class="cn-card"><span class="cn-tag">Indirecta</span><h4>Instagram</h4>
+                <p><b>Bien:</b> descubrimiento por perfiles, hashtags e influencers.</p>
+                <p><b>Falla:</b> no filtra por fecha, precio o plan; depende del algoritmo.</p></div>
+        </div>
+
+        <div class="cn__sub">Qué dijeron los usuarios</div>
+        <div class="cn-grid4">
+            <div class="cn-stat"><strong>18–<em>24</em></strong><span>años: la mayoría de las personas encuestadas.</span></div>
+            <div class="cn-stat"><strong>Varias <em>veces</em></strong><span>por semana sale de fiesta la mayoría.</span></div>
+            <div class="cn-stat"><strong><em>Mapa</em> + avisos</strong><span>lo que más piden: ver los planes y recibir avisos de nuevos eventos.</span></div>
+            <div class="cn-stat"><strong>1 <em>sitio</em></strong><span>mucho interés en una app que reúna toda la información.</span></div>
+        </div>
+
+        <div class="cn__sub">DAFO</div>
+        <div class="cn-dafo">
+            <div class="cn-card"><h4>Fortalezas</h4><ul><li>Reserva sin pago previo</li><li>Enfoque solo en ocio nocturno</li><li>Ver si quedan entradas sin comprarlas</li></ul></div>
+            <div class="cn-card cn-card--negro"><h4>Oportunidades</h4><ul><li>Avisos de planes de esa misma noche</li><li>Sección de última hora con sitio libre</li><li>Sección para turistas</li></ul></div>
+            <div class="cn-card cn-card--negro"><h4>Debilidades</h4><ul><li>Hay apps más grandes y conocidas</li><li>Los locales pueden preferir redes sociales</li><li>Los usuarios siguen mirando Instagram</li></ul></div>
+            <div class="cn-card"><h4>Amenazas</h4><ul><li>Depende de que los locales actualicen</li><li>App nueva: pocos eventos y poca gente la conoce</li><li>Menos recursos que otras apps</li></ul></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-usr">
+        ${hd('cn-usr', '02', 'Usuarios', 'Personas · Empatía · Journey')}
+        <p class="cn__lead">Tres perfiles para diseñar con personas concretas, no con suposiciones.</p>
+
+        <figure class="cn-fig"><img src="img/nocta/persona-sara-david.webp" alt="Arquetipo Sara y buyer persona David Torres" loading="lazy"><figcaption>Arquetipo · Sara &nbsp;/&nbsp; Buyer persona · David Torres</figcaption></figure>
+
+        <div class="cn-row2">
+            <figure class="cn-fig"><img src="img/nocta/persona-aitana.webp" alt="User persona Aitana Ruiz" loading="lazy"><figcaption>User persona · Aitana Ruiz</figcaption></figure>
+            <div class="cn-quote">
+                <div>
+                    <blockquote>“Quiero encontrar un sitio que merezca la pena y tener toda la información antes de ir, para no llevarme sorpresas.”</blockquote>
+                    <cite>David Torres · comercial, 24 años, viaja cada semana por trabajo</cite>
+                </div>
+                <ul>
+                    <li><b>Piensa</b>Se siente seguro cuando el dato está “verificado hace X minutos”.</li>
+                    <li><b>Ve</b>Apps antiguas con información desactualizada.</li>
+                    <li><b>Oye</b>Opiniones muy dispares sobre el mismo local.</li>
+                    <li><b>Hace</b>Compara 2–3 opciones y elige la verificada más reciente.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cn__sub">Journey map · David Torres</div>
+        <figure class="cn-fig"><img src="img/nocta/journey.webp" alt="Journey map de David Torres" loading="lazy"><figcaption>Del hotel al próximo viaje: puntos de dolor y oportunidades. Clic para ampliar.</figcaption></figure>
+    </section>
+
+    <section class="cn" id="cn-est">
+        ${hd('cn-est', '03', 'Estrategia', 'Valor · Modelo · In & Out')}
+        <p class="cn__lead">Datos verificados y un solo sitio: la propuesta de valor de Nocta.</p>
+
+        <div class="cn__sub">Propuesta de valor</div>
+        <div class="cn-chips">
+            <span class="cn-chip">Planes nocturnos reales de tu ciudad</span>
+            <span class="cn-chip">Sin depender del algoritmo</span>
+            <span class="cn-chip">Todo el ocio nocturno en un sitio</span>
+            <span class="cn-chip">Ves el plan antes de pagar</span>
+            <span class="cn-chip">Última hora y sitio libre en tiempo real</span>
+        </div>
+
+        <div class="cn__sub">Modelo de negocio</div>
+        <div class="cn-grid2">
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Ingresos</span><p>Comisión sobre la venta de entradas y promoción destacada para locales asociados.</p></div>
+            <div class="cn-card"><span class="cn-tag">Costes</span><p>Desarrollo y mantenimiento de la app, marketing local y gestión de alianzas con locales.</p></div>
+        </div>
+
+        <div class="cn__sub">In &amp; Out · de la necesidad a la solución</div>
+        <div class="cn-flow">
+            <div class="cn-card"><small>David necesita</small>Toda la información verificada antes de salir y no perder tiempo ni dinero.</div>
+            <span class="cn-arrow">→</span>
+            <div class="cn-card"><small>Porque</small>Solo se siente seguro si el dato es en tiempo real y verificable.</div>
+            <span class="cn-arrow">→</span>
+            <div class="cn-card cn-card--azul"><small>Solución</small>Datos verificados (ubicación, horario, aforo) y modo viaje.</div>
+        </div>
+        <div class="cn-flow">
+            <div class="cn-card"><small>Aitana necesita</small>Saber dónde es y a qué hora empieza, y coordinarse con sus amigas.</div>
+            <span class="cn-arrow">→</span>
+            <div class="cn-card"><small>Porque</small>En grupo cuesta ponerse de acuerdo si los datos no son claros.</div>
+            <span class="cn-arrow">→</span>
+            <div class="cn-card cn-card--azul"><small>Solución</small>Ubicación y horario verificados, y función para coordinar el plan en grupo.</div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-ia">
+        ${hd('cn-ia', '04', 'Arquitectura', 'Mapa de la app')}
+        <p class="cn__lead">Cinco áreas desde el Home, a un máximo de tres niveles.</p>
+        <div class="cn-arbol">
+            <div class="cn-arbol__raiz"><span>Splash</span><i>→</i><span>Onboarding</span><i>→</i><span>Inicio de sesión / Registro</span><i>→</i><span>Home</span></div>
+            <div class="cn-arbol__ramas">
+                <div class="cn-rama"><h5>Descubrir</h5><ul><li>Buscar planes</li><li>Recomendados</li></ul></div>
+                <div class="cn-rama"><h5>Mi plan</h5><ul><li>Calendario</li><li>Mi mapa</li><li>Aforo en tiempo real</li><li>Modo viaje</li></ul></div>
+                <div class="cn-rama"><h5>Grupo</h5><ul><li>Chat de grupo</li></ul></div>
+                <div class="cn-rama"><h5>Cuenta</h5><ul><li>Perfil</li><li>Favoritos</li><li>Historial</li></ul></div>
+                <div class="cn-rama"><h5>IA</h5><ul><li>Plan sugerido automático</li><li>Asistente de búsqueda</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cn cn-mvp" id="cn-mvp">
+        ${hd('cn-mvp', '05', 'MVP y futuribles', '4 prioridades')}
+        <p class="cn__lead">Lo que entra en la primera versión y lo que viene después.</p>
+        <div class="cn-grid4">
+            <div class="cn-card"><span class="n">1</span><p><b>Descubrir, guardar y coordinar</b> planes de ocio nocturno con tu grupo.</p></div>
+            <div class="cn-card cn-card--negro"><span class="n">2</span><p><b>Mapa con Google Maps</b> con la ubicación exacta y si quedan entradas.</p></div>
+            <div class="cn-card cn-card--negro"><span class="n">3</span><p><b>Avisos de última hora</b> cerca del usuario, para cubrir la espontaneidad.</p></div>
+            <div class="cn-card"><span class="n">4</span><p><b>Visibilidad para locales pequeños</b> con perfil, favoritos e historial.</p></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-dis">
+        ${hd('cn-dis', '06', 'Diseño', 'UI final')}
+        <p class="cn__lead">Una interfaz nocturna, oscura y con el evento como protagonista.</p>
+        <div class="cn-apps">
+            <img src="img/nocta/app-evento.webp" alt="Pantalla de evento: La Movida Bilbaína" loading="lazy">
+            <img src="img/nocta/app-home.webp" alt="Pantalla de inicio de Nocta" loading="lazy">
+        </div>
+        <div class="cn-cierre">Convertí un problema tan cotidiano como “no saber qué hacer esta noche” en un proyecto con base sólida.<small>Mi primera app de principio a fin: investigar, escuchar al usuario y decidir con datos reales en vez de por intuición.</small></div>
+    </section>`;
+}
+
+const cnHd = (num, titulo, tag) => `<div class="sec__head"><h2>${num} — ${titulo}</h2><span class="etiqueta">${tag}</span></div>`;
+
+/* ============ CASO DiAGO ============ */
+function casoDiago() {
+    return `
+    <div class="cn-tabs" id="cn-tabs">
+        <button class="cn-tab activo" data-t="cn-con">Concepto</button>
+        <button class="cn-tab" data-t="cn-inv">Investigación</button>
+        <button class="cn-tab" data-t="cn-usr">Usuarios</button>
+        <button class="cn-tab" data-t="cn-est">Estrategia</button>
+        <button class="cn-tab" data-t="cn-dis">Diseño</button>
+        <button class="cn-tab" data-t="cn-rec">Reconocimiento</button>
+    </div>
+
+    <section class="cn" id="cn-con">
+        ${cnHd('01', 'Concepto', 'Yo puedo solo')}
+        <p class="cn__lead">“Despierta, vístete y di: ¡yo puedo solo! Con DiaGO cada pasito te hace más grande.”</p>
+        <div class="cn-grid4">
+            <div class="cn-stat"><strong>3–<em>10</em></strong><span>años: el rango de edad de los niños que usan DiAGO.</span></div>
+            <div class="cn-stat"><strong><em>2</em> perfiles</strong><span>una misma app para niños jugadores y padres gestores.</span></div>
+            <div class="cn-stat"><strong>&lt; <em>1</em> min</strong><span>para programar tareas y gestionar recompensas desde el panel de padres.</span></div>
+            <div class="cn-stat"><strong><em>3</em> rutinas</strong><span>clave: lavarse los dientes, vestirse e ir a la cama.</span></div>
+        </div>
+        <div class="cn__sub">Metodología · Doble Diamante</div>
+        <div class="cn-chips">
+            <span class="cn-chip">Empatizar</span><span class="cn-chip">Definir</span><span class="cn-chip">Idear</span><span class="cn-chip">Prototipar</span><span class="cn-chip">Evaluar</span>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-inv">
+        ${cnHd('02', 'Investigación', 'Benchmark · Encuesta · Entrevistas')}
+        <p class="cn__lead">Primero entender cómo organizan las familias sus rutinas y dónde se atascan.</p>
+        <div class="cn__sub">Referentes analizados</div>
+        <div class="cn-chips">
+            <span class="cn-chip">Habitica</span><span class="cn-chip">MyChoreBoard</span><span class="cn-chip">FamilyTime</span>
+        </div>
+        <div class="cn__sub">Cómo lo validé</div>
+        <div class="cn-grid2">
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Encuesta</span><p>Para comprender cómo organizan sus rutinas las familias y qué dificultades encuentran. Confirmó la necesidad de DiaGO y ayudó a definir funciones clave: el <b>control en directo</b> y los <b>sistemas de recompensas</b>.</p></div>
+            <div class="cn-card"><span class="cn-tag">Entrevistas en profundidad</span><p>Para conocer con más detalle qué buscan <b>padres y niños</b> en una herramienta de organización familiar.</p></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-usr">
+        ${cnHd('03', 'Usuarios', 'Personas · Empatía · Journey')}
+        <p class="cn__lead">Tres perfiles estratégicos y una persona guía: Marta Iturralde.</p>
+        <div class="cn-grid3">
+            <div class="cn-card"><span class="cn-tag">User persona</span><p>El perfil de uso diario de la app.</p></div>
+            <div class="cn-card cn-card--azul"><span class="cn-tag">Buyer persona</span><p><b>Marta Iturralde</b>, quien decide y gestiona la compra de la solución.</p></div>
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Arquetipo</span><p>El patrón de comportamiento que resume las necesidades de las familias.</p></div>
+        </div>
+        <div class="cn-quote" style="margin-top:4px">
+            <div>
+                <blockquote>Marta gestiona la logística familiar tras una jornada laboral exigente y necesita una solución rápida, clara y sencilla para organizar las rutinas de su hijo sin caer en discusiones constantes.</blockquote>
+                <cite>Por eso elegí a Marta para el journey map: es el perfil ideal para analizar la facilidad de uso y la efectividad de DiaGO a lo largo del día.</cite>
+            </div>
+            <ul>
+                <li><b>Mapa de empatía</b>Para entender a fondo las frustraciones diarias de padres e hijos.</li>
+                <li><b>Journey map</b>Para identificar los puntos de dolor y las oportunidades de mejora.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-est">
+        ${cnHd('04', 'Estrategia', 'Canvas · In & Out')}
+        <p class="cn__lead">Definir la propuesta de valor y decidir qué entra en la primera versión.</p>
+        <div class="cn-grid2">
+            <div class="cn-card"><span class="cn-tag">Business Model Canvas</span><p>Con el Business Model Canvas y el Value Proposition Canvas definí la <b>propuesta de valor</b>, los <b>segmentos de clientes</b> y alineé las funciones con las necesidades reales de conciliación y organización familiar.</p></div>
+            <div class="cn-card cn-card--negro"><span class="cn-tag">In &amp; Out</span><p>Criterios: impacto, viabilidad, tiempo, riesgo, valor y diferenciación. Las funciones secundarias que no encajaban con los objetivos se descartaron temporalmente.</p></div>
+        </div>
+        <div class="cn__sub">Lo que entra en la primera versión</div>
+        <div class="cn-grid3">
+            <div class="cn-card cn-card--azul"><span class="n" style="font-family:var(--marker);font-size:2rem">1</span><p><b>Centralizar las rutinas</b> en un solo lugar.</p></div>
+            <div class="cn-card cn-card--negro"><span class="n" style="font-family:var(--marker);font-size:2rem">2</span><p><b>Datos en tiempo real</b> para los padres.</p></div>
+            <div class="cn-card"><span class="n" style="font-family:var(--marker);font-size:2rem">3</span><p><b>Panel visual</b> con iconos y premios para los niños.</p></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-dis">
+        ${cnHd('05', 'Diseño', 'Moodboard · Arquitectura')}
+        <p class="cn__lead">Una estética divertida, organizada y amable, pensada para las familias.</p>
+        <div class="cn-grid2">
+            <div class="cn-card"><span class="cn-tag">Moodboard</span><p>Reuní en una sola imagen las referencias visuales del estilo: paletas de color, tipografías, ilustraciones, iconos y ejemplos de otras interfaces.</p></div>
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Arquitectura de la información</span><p><b>Card sorting</b> para agrupar las funciones con lógica (gestor de rutinas, banco de premios) y <b>tree testing</b> para comprobar que la navegación es clara en el día a día.</p></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-rec">
+        ${cnHd('06', 'Reconocimiento', 'Bootcamp Neoland')}
+        <div class="cn-premio">
+            <span class="estrella">★</span>
+            <div>
+                <h3>Votado el mejor proyecto de la clase</h3>
+                <p>Proyecto final del Bootcamp de UX/UI de Neoland, elegido por mis compañeros y compañeras.</p>
+            </div>
+        </div>
+    </section>`;
+}
+
+/* ============ CASO NUBEA ============ */
+function casoNubea() {
+    return `
+    <div class="cn-tabs" id="cn-tabs">
+        <button class="cn-tab activo" data-t="cn-ctx">Contexto</button>
+        <button class="cn-tab" data-t="cn-spr">Design Sprint</button>
+        <button class="cn-tab" data-t="cn-usr">Usuarios</button>
+        <button class="cn-tab" data-t="cn-ide">Ideación</button>
+        <button class="cn-tab" data-t="cn-idv">Identidad y flujo</button>
+        <button class="cn-tab" data-t="cn-tes">Testeo y futuro</button>
+    </div>
+
+    <section class="cn" id="cn-ctx">
+        ${cnHd('01', 'Contexto', 'Proyecto grupal')}
+        <p class="cn__lead">Una app para gestionar emociones: “Entendemos lo que sientes. Te ayudamos a gestionarlo.”</p>
+        <div class="cn-grid2">
+            <div class="cn-card"><span class="cn-tag">Problema</span><p>La ansiedad producida por la <b>hiperconectividad</b> y las exigencias sociales genera estrés, depresión y aislamiento, sobre todo en los jóvenes.</p></div>
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Cliente</span><p>Alineado con las iniciativas del <b>Ministerio de Sanidad</b> y su Comisionado de Salud Mental, dentro del Plan de Acción de Salud Mental.</p></div>
+        </div>
+        <div class="cn__sub">Objetivos</div>
+        <div class="cn-grid3">
+            <div class="cn-card"><h4>Disminuir</h4><p>los niveles de ansiedad y estrés.</p></div>
+            <div class="cn-card cn-card--azul"><h4>Acompañar</h4><p>en el proceso de identificación emocional y de mejora.</p></div>
+            <div class="cn-card cn-card--negro"><h4>Aportar</h4><p>contenido y asesoramiento de expertos.</p></div>
+        </div>
+        <div class="cn__sub">Equipo</div>
+        <div class="cn-equipo"><span>Antonio</span><span>Ana Isabel</span><span>Yexibel</span><span>Verónica</span><span class="yo">Amanda · líder del equipo</span></div>
+    </section>
+
+    <section class="cn" id="cn-spr">
+        ${cnHd('02', 'Design Sprint', '5 días')}
+        <p class="cn__lead">Cinco días para pasar de una idea a un prototipo validado.</p>
+        <div class="cn-dias">
+            <div class="cn-dia"><small>Lunes</small><h5>Entender</h5><ul><li>Long term goal</li><li>Sprint questions</li><li>User persona</li></ul></div>
+            <div class="cn-dia"><small>Martes</small><h5>Idear</h5><ul><li>Lightning demos</li><li>Notas + ideas</li><li>Crazy 8’s</li></ul></div>
+            <div class="cn-dia"><small>Miércoles</small><h5>Decidir</h5><ul><li>Storyboard</li><li>Estructura</li><li>Flujo y arquitectura</li><li>Gestión de tareas</li></ul></div>
+            <div class="cn-dia"><small>Jueves</small><h5>Prototipar</h5><ul><li>Prototipado en Figma</li></ul></div>
+            <div class="cn-dia"><small>Viernes</small><h5>Testear</h5><ul><li>Testeo con usuarios</li><li>Presentación</li><li>Documento</li></ul></div>
+        </div>
+        <div class="cn__sub">How might we…</div>
+        <div class="cn-chips">
+            <span class="cn-chip">¿Cómo podríamos ofrecer técnicas al usuario que reduzcan su ansiedad?</span>
+            <span class="cn-chip">¿Cómo podríamos ofrecer alivio real en poco tiempo?</span>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-usr">
+        ${cnHd('03', 'Usuarios', 'Persona · Journey · Referentes')}
+        <p class="cn__lead">Ainoah, 34 años: se siente cansada y desbordada, y necesita calmarse sin más ruido.</p>
+        <div class="cn-gal">
+            <figure class="cn-fig"><img src="img/nubea/persona-journey.webp" alt="User persona y journey map de Ainoah" loading="lazy"><figcaption>User persona y journey map</figcaption></figure>
+            <figure class="cn-fig"><img src="img/nubea/lightning.webp" alt="Lightning demos: pre-crisis, crisis y post-crisis" loading="lazy"><figcaption>Lightning demos: referentes por fase</figcaption></figure>
+        </div>
+        <div class="cn__sub">Tres líneas de actuación</div>
+        <div class="cn-grid3">
+            <div class="cn-card"><span class="cn-tag">Pre-crisis</span><p>Anticiparse a posibles crisis de ansiedad.</p></div>
+            <div class="cn-card cn-card--azul"><span class="cn-tag">Crisis</span><p>Acompañamiento y herramientas para remitirlas.</p></div>
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Post-crisis</span><p>Analizar lo ocurrido.</p></div>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-ide">
+        ${cnHd('04', 'Ideación', 'Moodboard · Crazy 8’s · Storyboard')}
+        <p class="cn__lead">Ideas individuales, votación en equipo y 8 pantallas clave para prototipar.</p>
+        <div class="cn-gal">
+            <figure class="cn-fig cn-fig--ancho"><img src="img/nubea/moodboard.webp" alt="Moodboard de Nubea" loading="lazy"><figcaption>Moodboard</figcaption></figure>
+            <figure class="cn-fig"><img src="img/nubea/crazy8.webp" alt="Crazy 8's" loading="lazy"><figcaption>Crazy 8’s: las 8 pantallas más importantes</figcaption></figure>
+            <figure class="cn-fig"><img src="img/nubea/storyboard.webp" alt="Storyboard" loading="lazy"><figcaption>Storyboard</figcaption></figure>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-idv">
+        ${cnHd('05', 'Identidad y flujo', 'Nunito · Wireflow')}
+        <p class="cn__lead">Tonos morados pastel, tipografía Nunito y una atmósfera que baja el ruido.</p>
+        <div class="cn-gal">
+            <figure class="cn-fig"><img src="img/nubea/identidad.webp" alt="Identidad visual de Nubea" loading="lazy"><figcaption>Logotipo, tipografía y paleta</figcaption></figure>
+            <figure class="cn-fig"><img src="img/nubea/flujo.webp" alt="Flujo y arquitectura de Nubea" loading="lazy"><figcaption>Arquitectura y wireflow</figcaption></figure>
+        </div>
+    </section>
+
+    <section class="cn" id="cn-tes">
+        ${cnHd('06', 'Testeo y futuro', 'Validación · Futuribles')}
+        <p class="cn__lead">La base del producto funciona; los fallos son de ejecución del prototipo, no de concepto.</p>
+        <div class="cn-grid2">
+            <div class="cn-card cn-card--negro"><span class="cn-tag">Lo mejor valorado</span><p>La paleta de colores, los degradados y la claridad del diseño.</p></div>
+            <div class="cn-card"><span class="cn-tag">Conclusión</span><p>Los fallos detectados ya están identificados y mapeados, con propuestas de mejora para la versión final.</p></div>
+        </div>
+        <div class="cn__sub">Futuribles</div>
+        <div class="cn-grid4">
+            <div class="cn-card"><p><b>Wearables.</b> Conectar la app con pulseras inteligentes y smartwatches.</p></div>
+            <div class="cn-card cn-card--negro"><p><b>Profesionales de la salud.</b> Canal seguro para compartir reportes y evolución con psicólogos.</p></div>
+            <div class="cn-card cn-card--negro"><p><b>Asistente inteligente.</b> Un chatbot con capacidades de IA más avanzadas.</p></div>
+            <div class="cn-card"><p><b>Comunidad.</b> Espacios seguros y moderados de apoyo entre usuarios.</p></div>
+        </div>
+        <div class="cn-cierre" style="margin-top:4px">Ser líder fue un reto, pero también una de las partes que más disfruté, y aprendí muchísimo de mis compañeros.<small>— Amanda · Design Sprint de 5 días con 5 personas</small></div>
+    </section>`;
+}
+
+const CASOS = { nocta: casoNocta, diago: casoDiago, nubea: casoNubea };
+
+function initCaso(cont) {
+    cont.querySelectorAll('.lp-demo').forEach(b => b.addEventListener('click', () => {
+        const f = document.createElement('iframe');
+        f.src = b.dataset.src; f.title = 'Prototipo'; f.allowFullscreen = true;
+        b.replaceWith(f);
+    }));
+    cont.querySelectorAll('[data-ir]').forEach(b => b.addEventListener('click', () => {
+        const t = cont.querySelector('#' + b.dataset.ir);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+    const tabs = cont.querySelectorAll('.cn-tab');
+    if (!tabs.length) return;
+    tabs.forEach(b => b.addEventListener('click', () => {
+        const t = cont.querySelector('#' + b.dataset.t);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+    cont.querySelectorAll('.cn-fig img, .cn-apps img').forEach(img => img.addEventListener('click', () => {
+        const lb = $('#lightbox');
+        lb.querySelector('img').src = img.src;
+        lb.classList.add('ver');
+    }));
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((es) => {
+            es.forEach(e => {
+                if (e.isIntersecting) tabs.forEach(b => b.classList.toggle('activo', b.dataset.t === e.target.id));
+            });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        cont.querySelectorAll('section.cn').forEach(sec => io.observe(sec));
+    }
+}
+
+function renderProyecto(id) {
+    const p = PROYECTOS.find(x => x.id === id);
+    const cont = $('#contenido-proyecto');
+    if (!p) return;
+    marcarVisto(p);
+    const idx = PROYECTOS.indexOf(p);
+    const ant = PROYECTOS[(idx - 1 + PROYECTOS.length) % PROYECTOS.length];
+    const sig = PROYECTOS[(idx + 1) % PROYECTOS.length];
+
+    cont.innerHTML = `
+        <a href="#trabajos" class="boton boton--borde" id="volver">← Trabajos / ${esc(CATEGORIAS[p.cat].nombre)}</a>
+
+        <div class="proy-hero">
+            <h1>${esc(p.titulo)}</h1>
+            <div>
+                <span class="etiqueta">${p.num} — ${esc(p.subtitulo)}</span>
+                <p style="margin-top:10px;">${esc(p.resumen)}</p>
+            </div>
+        </div>
+
+        <dl class="proy-meta">
+            <div class="meta"><dt>Catálogo</dt><dd>${esc(CATEGORIAS[p.cat].nombre)}</dd></div>
+            <div class="meta"><dt>Rol</dt><dd>${esc(p.rol)}</dd></div>
+            <div class="meta"><dt>Año</dt><dd>${esc(p.anio)}</dd></div>
+            <div class="meta"><dt>Herramientas</dt><dd>${esc(p.herramientas)}</dd></div>
+        </dl>
+
+        ${p.insignias ? `<div class=\"cn-insig\">${p.insignias.map(t => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
+
+        ${LANDINGS[p.id] ? landingHTML(p) : `<div class="proy-banner"><img src="${p.portada}" alt="${esc(p.titulo)}" onerror="this.style.display='none'"></div>`}
+
+        <div class="sec">
+            <div class="sec__head"><h2>El desafío</h2><span class="etiqueta">${esc(p.metodologia)}</span></div>
+            <div class="dos">
+                <div class="caja"><h3>El problema</h3><p>${esc(p.problema)}</p></div>
+                <div class="caja caja--negra"><h3>Qué aprendí</h3><p>${esc(p.queAprendi)}</p></div>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div class="sec__head"><h2>Proceso</h2><span class="etiqueta">3 fases</span></div>
+            <div class="pasos">
+                ${p.fases.map(f => `<div class="paso"><div class="paso__num">${esc(f.num)}</div><h4>${esc(f.titulo)}</h4><p>${esc(f.desc)}</p></div>`).join('')}
+            </div>
+        </div>
+
+        ${CASOS[p.id] ? CASOS[p.id]() : ''}
+
+        <div class="sec">
+            <div class="resultado">
+                <div><h3>Resultado</h3><p>${esc(p.resultado)}</p></div>
+                ${p.enlace ? `<a href="${esc(p.enlace)}" class="boton boton--blanco" target="_blank" rel="noopener">${esc(p.textoEnlace || 'Ver prototipo')} →</a>` : ''}
+            </div>
+        </div>
+
+        ${p.prototipo ? protoHTML(p) : ''}
+
+        ${(p.imagenes && p.imagenes.length) ? `
+        <div class="sec">
+            <div class="sec__head"><h2>Piezas visuales</h2></div>
+            <div class="galeria">
+                ${p.imagenes.map(src => `<figure><img src="${src}" alt="${esc(p.titulo)}" loading="lazy" onerror="this.style.display='none'"></figure>`).join('')}
+            </div>
+        </div>` : ''}
+
+        <nav class="proy-nav">
+            <a href="#proyecto" class="boton boton--borde" data-id="${ant.id}">← ${esc(ant.titulo)}</a>
+            <a href="#proyecto" class="boton" data-id="${sig.id}">${esc(sig.titulo)} →</a>
+        </nav>`;
+
+    initCaso(cont);
+    $('#volver').addEventListener('click', (e) => { e.preventDefault(); mostrarVista('trabajos', p.cat); });
+    cont.querySelectorAll('.proy-nav a').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        mostrarVista('proyecto', a.dataset.id);
+    }));
+}
+
+/* ---- Eventos globales ---- */
+$('#burger').addEventListener('click', () => {
+    const abierto = $('#nav').classList.toggle('abierto');
+    $('#burger').setAttribute('aria-expanded', abierto);
+});
+$('#logo-home').addEventListener('click', (e) => { e.preventDefault(); mostrarVista('home'); });
+$('#link-todos-trabajos').addEventListener('click', (e) => { e.preventDefault(); estado.filtro = 'todos'; mostrarVista('trabajos'); });
+$('#nav-trabajos').addEventListener('click', (e) => { e.preventDefault(); estado.filtro = 'todos'; mostrarVista('trabajos'); });
+$('#nav-sobre').addEventListener('click', (e) => { e.preventDefault(); mostrarVista('sobre'); });
+$('#nav-servicios').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostrarVista('home');
+    setTimeout(() => $('#servicios').scrollIntoView({ behavior: 'smooth' }), 60);
+});
+
+$('#formulario').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const asunto = encodeURIComponent('Contacto desde el portfolio — ' + f.get('nombre'));
+    const cuerpo = encodeURIComponent(f.get('mensaje') + '\n\n' + f.get('nombre') + ' (' + f.get('email') + ')');
+    window.location.href = `mailto:piresamanda40@gmail.com?subject=${asunto}&body=${cuerpo}`;
+});
+
+/* ============ SOCIAL MEDIA ============ */
+const SOCIAL = [
+    {
+        titulo: 'BTS × Netmind',
+        sub: 'Colaboración en redes sociales',
+        texto: 'Piezas para redes de la colaboración entre BTS Made Strategy y Netmind.',
+        n: 6,
+        carpeta: 'img/social/bts-netmind',
+        ext: 'webp',
+        ratio: '1 / 1'
+    },
+    {
+        titulo: 'Nacimientos',
+        sub: 'Bebés nacidos en BTS',
+        texto: 'Posts de bienvenida a los bebés del equipo BTS.',
+        n: 6,
+        carpeta: 'img/social/nacimientos',
+        ext: 'webp',
+        ratio: '6 / 4'
+    }
+];
+
+function renderSocial() {
+    const cont = $('#social-contenido');
+    cont.innerHTML = SOCIAL.map((b, bi) => `
+        <div class="sec">
+            <div class="sec__head"><h2>${esc(b.titulo)}</h2><span class="etiqueta">0${bi + 1} — ${esc(b.sub)}</span></div>
+            <p class="social__txt">${esc(b.texto)}</p>
+            <div class="feed-grid" style="--ratio:${b.ratio}">
+                ${Array.from({ length: b.n }, (_, i) => `
+                    <figure class="post" style="--r:${(i % 2 ? 1 : -1) * (1 + i % 3)}deg">
+                        <span class="post__ph">${String(i + 1).padStart(2, '0')}</span>
+                        <img src="${b.carpeta}/${i + 1}.webp" alt="${esc(b.titulo)} ${i + 1}" loading="lazy" onerror="this.style.display='none'">
+                    </figure>`).join('')}
+            </div>
+        </div>`).join('');
+    cont.querySelectorAll('.post img').forEach(img => img.addEventListener('click', () => {
+        const lb = $('#lightbox');
+        lb.querySelector('img').src = img.src;
+        lb.classList.add('ver');
+    }));
+}
+$('#lightbox').addEventListener('click', () => $('#lightbox').classList.remove('ver'));
+addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#lightbox').classList.remove('ver'); });
+$('#nav-social').addEventListener('click', (e) => { e.preventDefault(); mostrarVista('social'); });
+$('#home-social').addEventListener('click', (e) => { e.preventDefault(); mostrarVista('social'); });
+
+/* ============ MODO JUEGO ============ */
+const toastEl = $('#toast');
+let toastT;
+function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('ver');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => toastEl.classList.remove('ver'), 2800);
+}
+
+function actualizarHud() {
+    $('#xp-total').textContent = PROYECTOS.length;
+    $('#xp').textContent = vistos.size;
+    $('#xp-bar').style.width = (vistos.size / PROYECTOS.length * 100) + '%';
+}
+
+function marcarVisto(p) {
+    if (vistos.has(p.id)) return;
+    vistos.add(p.id);
+    try { localStorage.setItem('stteve-vistos', JSON.stringify([...vistos])); } catch (e) {}
+    actualizarHud();
+    const h = $('#hud');
+    h.classList.remove('sube'); void h.offsetWidth; h.classList.add('sube');
+    const nivel = PROYECTOS.filter(x => x.cat === p.cat);
+    if (vistos.size === PROYECTOS.length) { toast('★ ¡Lo has explorado todo! Juego completado'); confeti(60); }
+    else if (nivel.every(x => vistos.has(x.id))) { toast('★ Nivel ' + CATEGORIAS[p.cat].nombre + ' completado'); confeti(28); }
+    else toast('+1 XP · ' + p.titulo + ' explorado');
+}
+
+function confeti(n = 50) {
+    const formas = ['★', '●', '○', '✺', '✦'];
+    for (let i = 0; i < n; i++) {
+        const s = document.createElement('span');
+        s.textContent = formas[i % formas.length];
+        s.style.cssText = `position:fixed;left:50%;top:60%;z-index:3200;pointer-events:none;color:#0b0b0b;font-size:${14 + Math.random() * 26}px;`;
+        document.body.appendChild(s);
+        const x = (Math.random() - .5) * innerWidth * .9;
+        const y = -(150 + Math.random() * innerHeight * .55);
+        s.animate([
+            { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+            { transform: `translate(${x}px,${y}px) rotate(${Math.random() * 720 - 360}deg)`, opacity: 1, offset: .55 },
+            { transform: `translate(${x * 1.1}px,${y + innerHeight}px) rotate(${Math.random() * 900}deg)`, opacity: 0 }
+        ], { duration: 1600 + Math.random() * 900, easing: 'cubic-bezier(.2,.7,.4,1)' }).onfinish = () => s.remove();
+    }
+}
+
+function hacerArrastrable(el) {
+    let sx, sy, ox = 0, oy = 0, activo = false;
+    el.classList.add('drag');
+    el.addEventListener('pointerdown', (e) => {
+        activo = true; sx = e.clientX; sy = e.clientY;
+        el.setPointerCapture(e.pointerId);
+        el.classList.add('agarrado');
+    });
+    el.addEventListener('pointermove', (e) => {
+        if (!activo) return;
+        el.style.translate = (ox + e.clientX - sx) + 'px ' + (oy + e.clientY - sy) + 'px';
+    });
+    const fin = (e) => {
+        if (!activo) return;
+        activo = false;
+        ox += e.clientX - sx; oy += e.clientY - sy;
+        el.classList.remove('agarrado');
+    };
+    el.addEventListener('pointerup', fin);
+    el.addEventListener('pointercancel', fin);
+}
+document.querySelectorAll('.blobs svg, .sticker, .hero__foto').forEach(hacerArrastrable);
+
+function dividirLetras(el) {
+    if (!el) return;
+    el.setAttribute('aria-label', el.textContent.trim());
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodos = [];
+    while (w.nextNode()) nodos.push(w.currentNode);
+    nodos.forEach(n => {
+        const fr = document.createDocumentFragment();
+        [...n.textContent].forEach(ch => {
+            if (ch.trim() === '') { fr.append(ch); return; }
+            const s = document.createElement('span');
+            s.className = 'letra'; s.setAttribute('aria-hidden', 'true'); s.textContent = ch;
+            fr.append(s);
+        });
+        n.replaceWith(fr);
+    });
+}
+dividirLetras($('.hero h1'));
+dividirLetras($('.about__titulo'));
+
+/* cursor */
+const cur = $('#cursor');
+if (matchMedia('(hover: hover)').matches) {
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+    addEventListener('pointermove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+        cur.classList.add('on');
+        cur.classList.toggle('grande', !!e.target.closest('a, button, .drag, .catalogo, .obra'));
+    });
+    (function loop() {
+        cx += (tx - cx) * .2; cy += (ty - cy) * .2;
+        cur.style.transform = `translate(${cx}px, ${cy}px)`;
+        requestAnimationFrame(loop);
+    })();
+}
+
+/* recorrido con jugador */
+let rutaLen = 0, rutaPts = [];
+function initRuta() {
+    const base = $('#ruta-base'), prog = $('#ruta-prog');
+    if (!base || !prog) return;
+    try { rutaLen = base.getTotalLength(); } catch (e) { rutaLen = 0; }
+    if (!rutaLen) { $('#fin').hidden = false; return; }
+    prog.style.strokeDasharray = rutaLen;
+    prog.style.strokeDashoffset = rutaLen;
+    rutaPts = [...document.querySelectorAll('#ruta .pt')].map(c => {
+        const x = +c.getAttribute('cx'), y = +c.getAttribute('cy');
+        let mejor = 0, bd = 1e9;
+        for (let l = 0; l <= rutaLen; l += 4) {
+            const p = base.getPointAtLength(l);
+            const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+            if (d < bd) { bd = d; mejor = l; }
+        }
+        return mejor;
+    });
+    moverJugador();
+}
+function moverJugador() 
+{
+    if (vistas.sobre.hidden || !rutaLen) return;
+    const r = $('#ruta').getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, (innerHeight * .7 - r.top) / (r.height * .95)));
+    const l = t * rutaLen;
+    const p = $('#ruta-base').getPointAtLength(l);
+    $('#player').setAttribute('transform', `translate(${p.x} ${p.y})`);
+    $('#ruta-prog').style.strokeDashoffset = rutaLen - l;
+    document.querySelectorAll('#ruta .pt').forEach((c, i) => c.setAttribute('fill', l >= rutaPts[i] - 2 ? '#0b0b0b' : '#fff'));
+    document.querySelectorAll('#ruta .nodo').forEach((n, i) => n.classList.toggle('on', l >= rutaPts[i + 1] - 2));
+    $('#fin').hidden = t < .98;
+}
+addEventListener('scroll', moverJugador, { passive: true });
+addEventListener('resize', moverJugador);
+$('#ir-trabajos').addEventListener('click', (e) => { e.preventDefault(); estado.filtro = 'todos'; mostrarVista('trabajos'); });
+
+actualizarHud();
+renderCatalogosHome();
+
+</script>
+</body>
+</html>

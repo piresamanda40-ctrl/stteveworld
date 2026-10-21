@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "PORTOLIO",
+			"path": "PORTOLIO"
+		},
+		{
+			"name": "img",
+			"path": "originales-landing/img"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "PORTOLIO"
+	}
+}
